@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Cuadrado, Cubo y Raíz</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Fredoka';src:url('assets/fonts/fredoka.woff2') format('woff2');font-weight:300 700;font-display:block}
+@font-face{font-family:'Rubik';src:url('assets/fonts/rubik.woff2') format('woff2');font-weight:300 900;font-display:block}
+@font-face{font-family:'Montserrat';src:url('assets/fonts/montserrat.woff2') format('woff2');font-weight:100 900;font-display:block}
+@font-face{font-family:'Caveat';src:url('assets/fonts/caveat.woff2') format('woff2');font-weight:700;font-display:block}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#FBF7EE}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#FBF7EE}
+.paper{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% 45%,rgba(255,255,255,.75),rgba(255,255,255,0) 62%),
+  repeating-linear-gradient(0deg,rgba(26,25,24,.035) 0 1px,transparent 1px 54px);}
+.frame{position:absolute;inset:44px;border:3px solid #F08CC0;border-radius:34px}
+.byheart{position:absolute;top:66px;right:96px;font-family:'Caveat';font-weight:700;font-size:46px;color:#E4479A;display:flex;gap:10px;align-items:center}
+.clip{position:absolute;inset:0}
+.it{z-index:2}
+.bgw,.fgw{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.bg{font-family:'Fredoka';font-weight:700;line-height:1;white-space:pre;letter-spacing:-0.01em}
+.fg{font-family:'Rubik';font-weight:600;line-height:1;white-space:pre;color:#1A1918;letter-spacing:-0.005em}
+.fg.word{font-weight:700;letter-spacing:0.02em}
+.sup{font-size:.56em;position:relative;top:-0.78em;margin-left:.05em}
+.rad{white-space:pre}
+.radsign{overflow:visible;margin-right:-0.02em}
+.radicand{position:relative;padding:0 .04em 0 .06em}
+.radicand::before{content:'';position:absolute;left:-0.02em;right:0;height:.075em;background:currentColor;border-radius:.04em}
+.ans{display:inline-block}
+.mk{position:relative;display:inline-block;z-index:0}
+.mk i{position:absolute;left:-.07em;right:-.07em;bottom:.02em;height:.5em;background:#F6DE3B;z-index:-1;border-radius:.06em;transform-origin:left center;opacity:.9}
+.bg .mk i{display:none}
+.notew{position:absolute;left:0;right:0;display:flex;justify-content:center}
+.note{font-family:'Caveat';font-weight:700;color:#14787E;line-height:1;white-space:pre;rotate:-3deg}
+.note .sup{top:-0.6em}
+.lyr{z-index:3}
+.lyrw{position:absolute;left:0;right:0;bottom:104px;display:flex;justify-content:center}
+.lyric{font-family:'Montserrat';font-weight:500;font-size:32px;color:#5E564C;letter-spacing:.02em}
+.lab{z-index:3}
+.labw{position:absolute;left:0;right:0;top:96px;display:flex;justify-content:center}
+.label{font-family:'Montserrat';font-weight:600;font-size:24px;letter-spacing:.32em;color:#A39686}
+.label .sup{top:-0.6em}
+.fg .radicand::before{top:0.105em}
+.fg.word .radicand::before{top:0.105em}
+.bg .radicand::before{top:0.144em;height:.13em}
+.note .radicand::before{top:0.220em}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="212.04" data-width="1920" data-height="1080" data-fps="30">
+<audio id="song" src="assets/cuadrado-cubo-raiz.mp3" data-start="0" data-duration="212.04" data-track-index="0" data-volume="1"></audio>
+<div class="paper"></div>
+<div class="frame"></div>
+<div class="byheart">BY <svg class="heart" viewBox="0 0 100 92" style="width:1em;height:0.920em;vertical-align:-0.100em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div>
+<section class="clip it" id="it0" data-start="0.000" data-duration="1.082" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:570px;margin-top:-22px;color:#E4479A;opacity:0.2">GMAT</div></div><div class="fgw"><div class="fg word" style="font-size:120px;margin-top:2px">CUADRADO, CUBO Y RAÍZ</div></div></section>
+<section class="clip it" id="it1" data-start="1.082" data-duration="1.079" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">1<span class="sup">n</span> = 1</div></div></section>
+<section class="clip it" id="it2" data-start="2.161" data-duration="0.453" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">1<span class="sup">2</span> = 1</div></div></section>
+<section class="clip it" id="it3" data-start="2.614" data-duration="0.940" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">1<span class="sup">3</span> = 1</div></div></section>
+<section class="clip it" id="it4" data-start="3.554" data-duration="1.098" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">1<span class="sup">4</span> = 1</div></div></section>
+<section class="clip it" id="it5" data-start="4.652" data-duration="0.470" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">1<span class="sup">5</span> = 1</div></div></section>
+<section class="clip it" id="it6" data-start="5.122" data-duration="2.775" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">1<span class="sup">6</span> = 1</div></div></section>
+<section class="clip it" id="it7" data-start="7.897" data-duration="0.940" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">CUADRADO</div></div></section>
+<section class="clip it" id="it8" data-start="8.837" data-duration="0.453" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#0E8A8C;opacity:0.2">x<span class="sup">3</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">CUBO</div></div></section>
+<section class="clip it" id="it9" data-start="9.290" data-duration="1.248" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:720px;margin-top:-27px;color:#A3164F;opacity:0.2"><span class="rad"><svg class="radsign" viewBox="0 0 56 106.0" style="width:0.56em;height:1.060em;vertical-align:-0.10em"><path d="M6.5 63.6 L15 55.1 L29 99.5 L56.0 6.50" fill="none" stroke="currentColor" stroke-width="13.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">RAÍZ</div></div></section>
+<section class="clip it" id="it10" data-start="10.538" data-duration="0.911" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:570px;margin-top:-22px;color:#E4479A;opacity:0.2">GMAT</div></div><div class="fgw"><div class="fg word" style="font-size:124px;margin-top:2px">EL GMAT ME HACE FELIZ</div></div></section>
+<section class="clip it" id="it11" data-start="11.449" data-duration="1.393" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">¡FELIZ!</div></div></section>
+<section class="clip it" id="it12" data-start="12.842" data-duration="0.918" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it13" data-start="13.760" data-duration="0.302" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#0E8A8C;opacity:0.2">x<span class="sup">3</span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it14" data-start="14.062" data-duration="0.458" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:720px;margin-top:-27px;color:#A3164F;opacity:0.2"><span class="rad"><svg class="radsign" viewBox="0 0 56 106.0" style="width:0.56em;height:1.060em;vertical-align:-0.10em"><path d="M6.5 63.6 L15 55.1 L29 99.5 L56.0 6.50" fill="none" stroke="currentColor" stroke-width="13.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it15" data-start="14.520" data-duration="1.399" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:158px;margin-top:2px">ME LO SÉ, ME LO SÉ</div></div></section>
+<section class="clip it" id="it16" data-start="15.919" data-duration="1.231" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">¡ASÍ!</div></div></section>
+<section class="clip it" id="it17" data-start="17.150" data-duration="2.612" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">×2</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2 × 2 × 2 × 2 …</div></div></section>
+<section class="clip it" id="it18" data-start="19.762" data-duration="0.464" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">2</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">1</span> = 2</div></div></section>
+<section class="clip it" id="it19" data-start="20.226" data-duration="0.471" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">4</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">2</span> = 4</div></div></section>
+<section class="clip it" id="it20" data-start="20.697" data-duration="0.156" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">8</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">3</span> = 8</div></div></section>
+<section class="clip it" id="it21" data-start="20.853" data-duration="0.918" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">16</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">4</span> = 16</div></div></section>
+<section class="clip it" id="it22" data-start="21.771" data-duration="0.928" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">32</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">5</span> = 32</div></div></section>
+<section class="clip it" id="it23" data-start="22.699" data-duration="0.772" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">64</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">6</span> = 64</div></div></section>
+<section class="clip it" id="it24" data-start="23.471" data-duration="1.086" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">128</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">7</span> = 128</div></div></section>
+<section class="clip it" id="it25" data-start="24.557" data-duration="1.532" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">256</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">8</span> = 256</div></div></section>
+<section class="clip it" id="it26" data-start="26.089" data-duration="1.388" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">256</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="mk"><i></i>2</span><span class="sup"><span class="mk"><i></i>8</span></span> = 256</div></div></section>
+<section class="clip it" id="it27" data-start="27.477" data-duration="1.230" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:753px;margin-top:-29px;color:#F0B000;opacity:0.34">2486</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2 · 4 · 8 · 6</div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">el final da vueltas</div></div></section>
+<section class="clip it" id="it28" data-start="28.707" data-duration="0.622" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">2</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="mk"><i></i>2</span> · 4 · 8 · 6</div></div></section>
+<section class="clip it" id="it29" data-start="29.329" data-duration="0.151" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">4</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2 · <span class="mk"><i></i>4</span> · 8 · 6</div></div></section>
+<section class="clip it" id="it30" data-start="29.480" data-duration="0.301" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">8</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2 · 4 · <span class="mk"><i></i>8</span> · 6</div></div></section>
+<section class="clip it" id="it31" data-start="29.781" data-duration="0.157" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">6</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2 · 4 · 8 · <span class="mk"><i></i>6</span></div></div></section>
+<section class="clip it" id="it32" data-start="29.938" data-duration="0.470" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">2</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">5</span> = 3<span class="mk"><i></i>2</span></div></div></section>
+<section class="clip it" id="it33" data-start="30.408" data-duration="0.453" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">4</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">6</span> = 6<span class="mk"><i></i>4</span></div></div></section>
+<section class="clip it" id="it34" data-start="30.861" data-duration="0.151" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">8</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">7</span> = 12<span class="mk"><i></i>8</span></div></div></section>
+<section class="clip it" id="it35" data-start="31.012" data-duration="0.157" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">6</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">8</span> = 25<span class="mk"><i></i>6</span></div></div></section>
+<section class="clip it" id="it36" data-start="31.169" data-duration="0.923" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:753px;margin-top:-29px;color:#F0B000;opacity:0.34">2486</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2 · 4 · 8 · 6 …</div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">¡otra vez!</div></div></section>
+<section class="clip it" id="it37" data-start="32.092" data-duration="0.464" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">3</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">3<span class="sup">1</span> = 3</div></div></section>
+<section class="clip it" id="it38" data-start="32.556" data-duration="0.314" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">9</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">3<span class="sup">2</span> = 9</div></div></section>
+<section class="clip it" id="it39" data-start="32.870" data-duration="0.302" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">27</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">3<span class="sup">3</span> = 27</div></div></section>
+<section class="clip it" id="it40" data-start="33.172" data-duration="1.381" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">81</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">3<span class="sup">4</span> = 81</div></div></section>
+<section class="clip it" id="it41" data-start="34.553" data-duration="1.382" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:975px;margin-top:-37px;color:#F0B000;opacity:0.34">243</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">3<span class="sup">5</span> = 243</div></div></section>
+<section class="clip it" id="it42" data-start="35.935" data-duration="1.387" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">3</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="mk"><i></i>3</span><span class="sup">5</span> = 24<span class="mk"><i></i>3</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">empieza en 3 y acaba en 3</div></div></section>
+<section class="clip it" id="it43" data-start="37.322" data-duration="0.470" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">4</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">4<span class="sup">1</span> = 4</div></div></section>
+<section class="clip it" id="it44" data-start="37.792" data-duration="0.604" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">16</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">4<span class="sup">2</span> = 16</div></div></section>
+<section class="clip it" id="it45" data-start="38.396" data-duration="1.387" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">64</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">4<span class="sup">3</span> = 64</div></div></section>
+<section class="clip it" id="it46" data-start="39.783" data-duration="2.003" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">256</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">4<span class="sup">4</span> = 256</div></div></section>
+<section class="clip it" id="it47" data-start="41.786" data-duration="0.459" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">5</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">5<span class="sup">1</span> = 5</div></div></section>
+<section class="clip it" id="it48" data-start="42.245" data-duration="0.783" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">25</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">5<span class="sup">2</span> = 25</div></div></section>
+<section class="clip it" id="it49" data-start="43.028" data-duration="1.219" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">125</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">5<span class="sup">3</span> = 125</div></div></section>
+<section class="clip it" id="it50" data-start="44.247" data-duration="1.399" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">625</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">5<span class="sup">4</span> = 625</div></div></section>
+<section class="clip it" id="it51" data-start="45.646" data-duration="1.678" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">5</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="mk"><i></i>5</span> · 12<span class="mk"><i></i>5</span> · 62<span class="mk"><i></i>5</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">todos acaban en 5</div></div></section>
+<section class="clip it" id="it52" data-start="47.324" data-duration="0.917" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">CUADRADO</div></div></section>
+<section class="clip it" id="it53" data-start="48.241" data-duration="0.314" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#0E8A8C;opacity:0.2">x<span class="sup">3</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">CUBO</div></div></section>
+<section class="clip it" id="it54" data-start="48.555" data-duration="1.370" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:720px;margin-top:-27px;color:#A3164F;opacity:0.2"><span class="rad"><svg class="radsign" viewBox="0 0 56 106.0" style="width:0.56em;height:1.060em;vertical-align:-0.10em"><path d="M6.5 63.6 L15 55.1 L29 99.5 L56.0 6.50" fill="none" stroke="currentColor" stroke-width="13.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">RAÍZ</div></div></section>
+<section class="clip it" id="it55" data-start="49.925" data-duration="0.929" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:570px;margin-top:-22px;color:#E4479A;opacity:0.2">GMAT</div></div><div class="fgw"><div class="fg word" style="font-size:124px;margin-top:2px">EL GMAT ME HACE FELIZ</div></div></section>
+<section class="clip it" id="it56" data-start="50.854" data-duration="1.381" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">¡FELIZ!</div></div></section>
+<section class="clip it" id="it57" data-start="52.235" data-duration="0.906" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it58" data-start="53.141" data-duration="0.313" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#0E8A8C;opacity:0.2">x<span class="sup">3</span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it59" data-start="53.454" data-duration="0.465" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:720px;margin-top:-27px;color:#A3164F;opacity:0.2"><span class="rad"><svg class="radsign" viewBox="0 0 56 106.0" style="width:0.56em;height:1.060em;vertical-align:-0.10em"><path d="M6.5 63.6 L15 55.1 L29 99.5 L56.0 6.50" fill="none" stroke="currentColor" stroke-width="13.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it60" data-start="53.919" data-duration="1.381" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:158px;margin-top:2px">ME LO SÉ, ME LO SÉ</div></div></section>
+<section class="clip it" id="it61" data-start="55.300" data-duration="0.615" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">¡ASÍ!</div></div></section>
+<section class="clip it" id="it62" data-start="55.915" data-duration="2.450" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#A3164F;opacity:0.2">1,41</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">2</span></span> = <span class="ans">1,41</span></div></div></section>
+<section class="clip it" id="it63" data-start="58.365" data-duration="2.450" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:777px;margin-top:-30px;color:#A3164F;opacity:0.2">1,73</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">3</span></span> = <span class="ans">1,73</span></div></div></section>
+<section class="clip it" id="it64" data-start="60.815" data-duration="2.450" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:688px;margin-top:-26px;color:#A3164F;opacity:0.2">2,24</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">5</span></span> = <span class="ans">2,24</span></div></div></section>
+<section class="clip it" id="it65" data-start="63.265" data-duration="2.449" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:716px;margin-top:-27px;color:#A3164F;opacity:0.2">2,45</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">6</span></span> = <span class="ans">2,45</span></div></div></section>
+<section class="clip it" id="it66" data-start="65.714" data-duration="2.450" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:728px;margin-top:-28px;color:#A3164F;opacity:0.2">2,65</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">7</span></span> = <span class="ans">2,65</span></div></div></section>
+<section class="clip it" id="it67" data-start="68.164" data-duration="2.450" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:692px;margin-top:-26px;color:#A3164F;opacity:0.2">2,83</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">8</span></span> = <span class="ans">2,83</span></div></div></section>
+<section class="clip it" id="it68" data-start="70.614" data-duration="3.825" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:777px;margin-top:-30px;color:#A3164F;opacity:0.2">3,16</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">10</span></span> = <span class="ans">3,16</span></div></div></section>
+<section class="clip it" id="it69" data-start="74.439" data-duration="1.968" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#A3164F;opacity:0.2">2</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">4</span></span> = <span class="ans">2</span></div></div></section>
+<section class="clip it" id="it70" data-start="76.407" data-duration="1.991" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#A3164F;opacity:0.2">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">1</span></span> = <span class="ans">1</span></div></div></section>
+<section class="clip it" id="it71" data-start="78.398" data-duration="2.909" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">36</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">6<span class="sup">2</span> = <span class="ans">36</span></div></div></section>
+<section class="clip it" id="it72" data-start="81.307" data-duration="1.985" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">216</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">6<span class="sup">3</span> = <span class="ans">216</span></div></div></section>
+<section class="clip it" id="it73" data-start="83.292" data-duration="2.589" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">6</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">6<span class="sup">x</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> …<span class="mk"><i></i>6</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">unidad siempre 6</div></div></section>
+<section class="clip it" id="it74" data-start="85.881" data-duration="2.287" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">49</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">2</span> = <span class="ans">49</span></div></div></section>
+<section class="clip it" id="it75" data-start="88.168" data-duration="2.589" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:976px;margin-top:-37px;color:#0E8A8C;opacity:0.2">343</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">3</span> = <span class="ans">343</span></div></div></section>
+<section class="clip it" id="it76" data-start="90.757" data-duration="0.604" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">7</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">1</span> = <span class="mk"><i></i>7</span></div></div></section>
+<section class="clip it" id="it77" data-start="91.361" data-duration="0.302" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">9</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">2</span> = 4<span class="mk"><i></i>9</span></div></div></section>
+<section class="clip it" id="it78" data-start="91.663" data-duration="0.313" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">3</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">3</span> = 34<span class="mk"><i></i>3</span></div></div></section>
+<section class="clip it" id="it79" data-start="91.976" data-duration="0.157" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">4</span> = 240<span class="mk"><i></i>1</span></div></div></section>
+<section class="clip it" id="it80" data-start="92.133" data-duration="1.085" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:825px;margin-top:-31px;color:#F0B000;opacity:0.34">7931</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7 · 9 · 3 · 1 …</div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">¡y vuelta otra vez!</div></div></section>
+<section class="clip it" id="it81" data-start="93.218" data-duration="2.264" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">64</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">8<span class="sup">2</span> = <span class="ans">64</span></div></div></section>
+<section class="clip it" id="it82" data-start="95.482" data-duration="2.137" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">512</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">8<span class="sup">3</span> = <span class="ans">512</span></div></div></section>
+<section class="clip it" id="it83" data-start="97.619" data-duration="2.763" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">81</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">9<span class="sup">2</span> = <span class="ans">81</span></div></div></section>
+<section class="clip it" id="it84" data-start="100.382" data-duration="2.113" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">729</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">9<span class="sup">3</span> = <span class="ans">729</span></div></div></section>
+<section class="clip it" id="it85" data-start="102.495" data-duration="1.079" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">9<span class="sup">par</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> …<span class="mk"><i></i>1</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">par acaba en 1</div></div></section>
+<section class="clip it" id="it86" data-start="103.574" data-duration="1.510" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">9</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">9<span class="sup">impar</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> …<span class="mk"><i></i>9</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">impar acaba en 9</div></div></section>
+<section class="clip it" id="it87" data-start="105.084" data-duration="0.998" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">AL CUADRADO</div></div></section>
+<section class="clip it" id="it88" data-start="106.082" data-duration="1.858" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">121</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">11<span class="sup">2</span> = <span class="ans">121</span></div></div></section>
+<section class="clip it" id="it89" data-start="107.940" data-duration="1.573" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">144</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">12<span class="sup">2</span> = <span class="ans">144</span></div></div></section>
+<section class="clip it" id="it90" data-start="109.513" data-duration="0.749" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">144</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">12<span class="sup">2</span> = 144</div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">y al revés…</div></div></section>
+<section class="clip it" id="it91" data-start="110.262" data-duration="2.438" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">441</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">21<span class="sup">2</span> = <span class="ans">441</span></div></div></section>
+<section class="clip it" id="it92" data-start="112.700" data-duration="0.313" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">441</div></div><div class="fgw"><div class="fg" style="font-size:161px;margin-top:2px">12<span class="sup">2</span> = <span class="mk"><i></i>144</span>   21<span class="sup">2</span> = <span class="mk"><i></i>441</span></div></div><div class="notew" style="top:658px"><div class="note" style="font-size:84px;color:#14787E">¡espejo!</div></div></section>
+<section class="clip it" id="it93" data-start="113.013" data-duration="2.125" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">169</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">13<span class="sup">2</span> = <span class="ans">169</span></div></div></section>
+<section class="clip it" id="it94" data-start="115.138" data-duration="2.612" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">196</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">14<span class="sup">2</span> = <span class="ans">196</span></div></div></section>
+<section class="clip it" id="it95" data-start="117.750" data-duration="1.962" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">225</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">15<span class="sup">2</span> = <span class="ans">225</span></div></div></section>
+<section class="clip it" id="it96" data-start="119.712" data-duration="2.584" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">256</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">16<span class="sup">2</span> = <span class="ans">256</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">= 4<span class="sup">4</span> = 2<span class="sup">8</span></div></div></section>
+<section class="clip it" id="it97" data-start="122.296" data-duration="2.420" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">289</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">17<span class="sup">2</span> = <span class="ans">289</span></div></div></section>
+<section class="clip it" id="it98" data-start="124.716" data-duration="1.835" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:975px;margin-top:-37px;color:#E4479A;opacity:0.2">324</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">18<span class="sup">2</span> = <span class="ans">324</span></div></div></section>
+<section class="clip it" id="it99" data-start="126.551" data-duration="2.740" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">361</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">19<span class="sup">2</span> = <span class="ans">361</span></div></div></section>
+<section class="clip it" id="it100" data-start="129.291" data-duration="1.683" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:976px;margin-top:-37px;color:#E4479A;opacity:0.2">400</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">20<span class="sup">2</span> = <span class="ans">400</span></div></div></section>
+<section class="clip it" id="it101" data-start="130.974" data-duration="0.453" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">AL CUADRADO</div></div></section>
+<section class="clip it" id="it102" data-start="131.427" data-duration="2.415" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:998px;margin-top:-38px;color:#E4479A;opacity:0.2">484</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">22<span class="sup">2</span> = <span class="ans">484</span></div></div></section>
+<section class="clip it" id="it103" data-start="133.842" data-duration="1.811" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">529</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">23<span class="sup">2</span> = <span class="ans">529</span></div></div></section>
+<section class="clip it" id="it104" data-start="135.653" data-duration="2.438" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">576</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">24<span class="sup">2</span> = <span class="ans">576</span></div></div></section>
+<section class="clip it" id="it105" data-start="138.091" data-duration="2.432" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">676</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">26<span class="sup">2</span> = <span class="ans">676</span></div></div></section>
+<section class="clip it" id="it106" data-start="140.523" data-duration="1.817" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">76</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">26<span class="sup">2</span> = 6<span class="mk"><i></i>76</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">…76, …76</div></div></section>
+<section class="clip it" id="it107" data-start="142.340" data-duration="1.382" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">625</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">25<span class="sup">2</span> = <span class="ans">625</span></div></div></section>
+<section class="clip it" id="it108" data-start="143.722" data-duration="0.905" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">625</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">25<span class="sup">2</span> = 6<span class="mk"><i></i>25</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">¡cinco, cinco!</div></div></section>
+<section class="clip it" id="it109" data-start="144.627" data-duration="2.113" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">729</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">27<span class="sup">2</span> = <span class="ans">729</span></div></div></section>
+<section class="clip it" id="it110" data-start="146.740" data-duration="1.208" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#0E8A8C;opacity:0.2">729</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">27<span class="sup">2</span> = 729 = <span class="mk"><i></i>9</span><span class="sup"><span class="mk"><i></i>3</span></span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#8E1A47">¡como nueve al cubo!</div></div></section>
+<section class="clip it" id="it111" data-start="147.948" data-duration="2.287" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">784</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">28<span class="sup">2</span> = <span class="ans">784</span></div></div></section>
+<section class="clip it" id="it112" data-start="150.235" data-duration="3.042" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">841</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">29<span class="sup">2</span> = <span class="ans">841</span></div></div></section>
+<section class="clip it" id="it113" data-start="153.277" data-duration="2.716" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:993px;margin-top:-38px;color:#E4479A;opacity:0.2">900</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">30<span class="sup">2</span> = <span class="ans">900</span></div></div></section>
+<section class="clip it" id="it114" data-start="155.993" data-duration="0.767" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">CUADRADO</div></div></section>
+<section class="clip it" id="it115" data-start="156.760" data-duration="0.313" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#0E8A8C;opacity:0.2">x<span class="sup">3</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">CUBO</div></div></section>
+<section class="clip it" id="it116" data-start="157.073" data-duration="1.359" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:720px;margin-top:-27px;color:#A3164F;opacity:0.2"><span class="rad"><svg class="radsign" viewBox="0 0 56 106.0" style="width:0.56em;height:1.060em;vertical-align:-0.10em"><path d="M6.5 63.6 L15 55.1 L29 99.5 L56.0 6.50" fill="none" stroke="currentColor" stroke-width="13.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">RAÍZ</div></div></section>
+<section class="clip it" id="it117" data-start="158.432" data-duration="1.056" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:570px;margin-top:-22px;color:#E4479A;opacity:0.2">GMAT</div></div><div class="fgw"><div class="fg word" style="font-size:124px;margin-top:2px">EL GMAT ME HACE FELIZ</div></div></section>
+<section class="clip it" id="it118" data-start="159.488" data-duration="1.184" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">¡FELIZ!</div></div></section>
+<section class="clip it" id="it119" data-start="160.672" data-duration="0.871" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it120" data-start="161.543" data-duration="0.435" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#0E8A8C;opacity:0.2">x<span class="sup">3</span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it121" data-start="161.978" data-duration="0.436" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:720px;margin-top:-27px;color:#A3164F;opacity:0.2"><span class="rad"><svg class="radsign" viewBox="0 0 56 106.0" style="width:0.56em;height:1.060em;vertical-align:-0.10em"><path d="M6.5 63.6 L15 55.1 L29 99.5 L56.0 6.50" fill="none" stroke="currentColor" stroke-width="13.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it122" data-start="162.414" data-duration="1.306" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:158px;margin-top:2px">ME LO SÉ, ME LO SÉ</div></div></section>
+<section class="clip it" id="it123" data-start="163.720" data-duration="0.580" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">¡ASÍ!</div></div></section>
+<section class="clip it" id="it124" data-start="164.300" data-duration="1.469" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">36</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">36 = 6<span class="sup">2</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">cuadrado perfecto</div></div></section>
+<section class="clip it" id="it125" data-start="165.769" data-duration="1.225" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">36</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">36 = 2<span class="sup">2</span> · 3<span class="sup">2</span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">rómpelo en primos</div></div></section>
+<section class="clip it" id="it126" data-start="166.994" data-duration="1.341" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">2 2</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">36 = 2<span class="sup"><span class="mk"><i></i>2</span></span> · 3<span class="sup"><span class="mk"><i></i>2</span></span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">¿y los exponentes?</div></div></section>
+<section class="clip it" id="it127" data-start="168.335" data-duration="0.917" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:859px;margin-top:-33px;color:#E4479A;opacity:0.2">PAR</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">36 = 2<span class="sup"><span class="mk"><i></i>2</span></span> · 3<span class="sup"><span class="mk"><i></i>2</span></span></div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">¡pares, pares!</div></div></section>
+<section class="clip it" id="it128" data-start="169.252" data-duration="1.231" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">9</div></div><div class="fgw"><div class="fg" style="font-size:112px;margin-top:2px">1 · 2 · 3 · 4 · 6 · 9 · 12 · 18 · 36</div></div><div class="notew" style="top:627px"><div class="note" style="font-size:84px;color:#14787E">¿y los divisores?</div></div></section>
+<section class="clip it" id="it129" data-start="170.483" data-duration="1.068" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2">9</div></div><div class="fgw"><div class="fg" style="font-size:157px;margin-top:2px">36 tiene <span class="mk"><i></i>9</span> divisores</div></div><div class="notew" style="top:655px"><div class="note" style="font-size:84px;color:#14787E">¡impares, impares!</div></div></section>
+<section class="clip it" id="it130" data-start="171.551" data-duration="2.740" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">×9</div></div><div class="fgw"><div class="fg" style="font-size:123px;margin-top:2px">n · (n+1) · (n+2) · … · (n+8)</div></div><div class="notew" style="top:634px"><div class="note" style="font-size:84px;color:#14787E">nueve enteros seguidos</div></div></section>
+<section class="clip it" id="it131" data-start="174.291" data-duration="1.811" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">9</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">÷ 9</div></div><div class="notew" style="top:662px"><div class="note" style="font-size:84px;color:#14787E">¿entre nueve?</div></div></section>
+<section class="clip it" id="it132" data-start="176.102" data-duration="1.683" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">9</div></div><div class="fgw"><div class="fg word" style="font-size:107px;margin-top:2px">SIEMPRE DIVISIBLE ENTRE <span class="mk"><i></i>9</span></div></div></section>
+<section class="clip it" id="it133" data-start="177.785" data-duration="2.439" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#A3164F;opacity:0.2">1,41</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">2</span></span> = <span class="ans">1,41</span></div></div></section>
+<section class="clip it" id="it134" data-start="180.224" data-duration="2.426" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:777px;margin-top:-30px;color:#A3164F;opacity:0.2">1,73</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">3</span></span> = <span class="ans">1,73</span></div></div></section>
+<section class="clip it" id="it135" data-start="182.650" data-duration="2.426" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:688px;margin-top:-26px;color:#A3164F;opacity:0.2">2,24</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">5</span></span> = <span class="ans">2,24</span></div></div></section>
+<section class="clip it" id="it136" data-start="185.076" data-duration="2.415" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:716px;margin-top:-27px;color:#A3164F;opacity:0.2">2,45</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">6</span></span> = <span class="ans">2,45</span></div></div></section>
+<section class="clip it" id="it137" data-start="187.491" data-duration="2.438" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:728px;margin-top:-28px;color:#A3164F;opacity:0.2">2,65</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">7</span></span> = <span class="ans">2,65</span></div></div></section>
+<section class="clip it" id="it138" data-start="189.929" data-duration="2.415" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:692px;margin-top:-26px;color:#A3164F;opacity:0.2">2,83</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">8</span></span> = <span class="ans">2,83</span></div></div></section>
+<section class="clip it" id="it139" data-start="192.344" data-duration="3.797" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:777px;margin-top:-30px;color:#A3164F;opacity:0.2">3,16</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px"><span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">10</span></span> = <span class="ans">3,16</span></div></div></section>
+<section class="clip it" id="it140" data-start="196.141" data-duration="0.604" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">CUADRADO</div></div></section>
+<section class="clip it" id="it141" data-start="196.745" data-duration="0.452" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#0E8A8C;opacity:0.2">x<span class="sup">3</span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">CUBO</div></div></section>
+<section class="clip it" id="it142" data-start="197.197" data-duration="1.359" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:720px;margin-top:-27px;color:#A3164F;opacity:0.2"><span class="rad"><svg class="radsign" viewBox="0 0 56 106.0" style="width:0.56em;height:1.060em;vertical-align:-0.10em"><path d="M6.5 63.6 L15 55.1 L29 99.5 L56.0 6.50" fill="none" stroke="currentColor" stroke-width="13.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">RAÍZ</div></div></section>
+<section class="clip it" id="it143" data-start="198.556" data-duration="1.056" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:570px;margin-top:-22px;color:#E4479A;opacity:0.2">GMAT</div></div><div class="fgw"><div class="fg word" style="font-size:124px;margin-top:2px">EL GMAT ME HACE FELIZ</div></div></section>
+<section class="clip it" id="it144" data-start="199.612" data-duration="1.208" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">¡FELIZ!</div></div></section>
+<section class="clip it" id="it145" data-start="200.820" data-duration="0.905" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#E4479A;opacity:0.2">x<span class="sup">2</span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it146" data-start="201.725" data-duration="0.302" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:800px;margin-top:-30px;color:#0E8A8C;opacity:0.2">x<span class="sup">3</span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it147" data-start="202.027" data-duration="0.453" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:720px;margin-top:-27px;color:#A3164F;opacity:0.2"><span class="rad"><svg class="radsign" viewBox="0 0 56 106.0" style="width:0.56em;height:1.060em;vertical-align:-0.10em"><path d="M6.5 63.6 L15 55.1 L29 99.5 L56.0 6.50" fill="none" stroke="currentColor" stroke-width="13.0" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">x<span class="sup">2</span> · x<span class="sup">3</span> · <span class="rad"><svg class="radsign" viewBox="0 0 56 100.5" style="width:0.56em;height:1.005em;vertical-align:-0.10em"><path d="M3.8 60.3 L15 52.3 L29 96.7 L56.0 3.75" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="radicand">x</span></span></div></div></section>
+<section class="clip it" id="it148" data-start="202.480" data-duration="1.358" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:158px;margin-top:2px">ME LO SÉ, ME LO SÉ</div></div></section>
+<section class="clip it" id="it149" data-start="203.838" data-duration="1.359" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:190px;margin-top:3px">¡ASÍ!</div></div></section>
+<section class="clip it" id="it150" data-start="205.197" data-duration="0.603" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">2</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">n</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> <span class="mk"><i></i>2</span> · 4 · 8 · 6</div></div></section>
+<section class="clip it" id="it151" data-start="205.800" data-duration="0.527" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">4</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">n</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> 2 · <span class="mk"><i></i>4</span> · 8 · 6</div></div></section>
+<section class="clip it" id="it152" data-start="206.327" data-duration="0.200" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">8</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">n</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> 2 · 4 · <span class="mk"><i></i>8</span> · 6</div></div></section>
+<section class="clip it" id="it153" data-start="206.527" data-duration="0.920" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">6</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">2<span class="sup">n</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> 2 · 4 · 8 · <span class="mk"><i></i>6</span></div></div></section>
+<section class="clip it" id="it154" data-start="207.447" data-duration="0.640" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">7</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">n</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> <span class="mk"><i></i>7</span> · 9 · 3 · 1</div></div></section>
+<section class="clip it" id="it155" data-start="208.087" data-duration="0.300" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">9</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">n</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> 7 · <span class="mk"><i></i>9</span> · 3 · 1</div></div></section>
+<section class="clip it" id="it156" data-start="208.387" data-duration="0.520" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">3</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">n</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> 7 · 9 · <span class="mk"><i></i>3</span> · 1</div></div></section>
+<section class="clip it" id="it157" data-start="208.907" data-duration="0.883" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#F0B000;opacity:0.34">1</div></div><div class="fgw"><div class="fg" style="font-size:168px;margin-top:3px">7<span class="sup">n</span> <svg class="arrow" viewBox="0 0 95 50" style="width:0.95em;height:.5em;vertical-align:0.100em"><path d="M8 25 H82 M62 7 L84 25 L62 43" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg> 7 · 9 · 3 · <span class="mk"><i></i>1</span></div></div></section>
+<section class="clip it" id="it158" data-start="209.790" data-duration="2.250" data-track-index="2"><div class="bgw"><div class="bg" style="font-size:1000px;margin-top:-38px;color:#E4479A;opacity:0.2"><svg class="heart" viewBox="0 0 100 92" style="width:1.0em;height:0.920em;vertical-align:-0.040em"><path d="M50 88 C20 66 4 50 4 30 C4 15 16 4 30 4 C40 4 46 9 50 17 C54 9 60 4 70 4 C84 4 96 15 96 30 C96 50 80 66 50 88 Z" fill="currentColor"/></svg></div></div><div class="fgw"><div class="fg word" style="font-size:120px;margin-top:2px">CUADRADO, CUBO Y RAÍZ</div></div><div class="notew" style="top:632px"><div class="note" style="font-size:84px;color:#14787E">me lo sé, me lo sé</div></div></section>
+<section class="clip lyr" id="ly0" data-start="0.000" data-duration="1.082" data-track-index="3"><div class="lyrw"><div class="lyric">(¡Eh! ¡Eh!)</div></div></section>
+<section class="clip lyr" id="ly1" data-start="1.082" data-duration="2.472" data-track-index="3"><div class="lyrw"><div class="lyric">Uno a la que quieras… (¡uno!)</div></div></section>
+<section class="clip lyr" id="ly2" data-start="3.554" data-duration="4.343" data-track-index="3"><div class="lyrw"><div class="lyric">Uno a la que quieras… (¡uno!)</div></div></section>
+<section class="clip lyr" id="ly3" data-start="7.897" data-duration="2.213" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado, cubo y raíz</div></div></section>
+<section class="clip lyr" id="ly4" data-start="10.110" data-duration="2.732" data-track-index="3"><div class="lyrw"><div class="lyric">el GMAT me hace feliz (¡feliz!)</div></div></section>
+<section class="clip lyr" id="ly5" data-start="12.842" data-duration="1.678" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado, cubo y raíz</div></div></section>
+<section class="clip lyr" id="ly6" data-start="14.520" data-duration="2.630" data-track-index="3"><div class="lyrw"><div class="lyric">me lo sé, me lo sé… ¡así!</div></div></section>
+<section class="clip lyr" id="ly7" data-start="17.150" data-duration="2.600" data-track-index="3"><div class="lyrw"><div class="lyric">Dobla, dobla, dobla, ¡dale!</div></div></section>
+<section class="clip lyr" id="ly8" data-start="19.750" data-duration="2.021" data-track-index="3"><div class="lyrw"><div class="lyric">Dos, cuatro, ocho, dieciséis</div></div></section>
+<section class="clip lyr" id="ly9" data-start="21.771" data-duration="1.700" data-track-index="3"><div class="lyrw"><div class="lyric">Treinta y dos, sesenta y cuatro</div></div></section>
+<section class="clip lyr" id="ly10" data-start="23.471" data-duration="1.086" data-track-index="3"><div class="lyrw"><div class="lyric">Ciento veintiocho…</div></div></section>
+<section class="clip lyr" id="ly11" data-start="24.557" data-duration="1.532" data-track-index="3"><div class="lyrw"><div class="lyric">¡Doscientos cincuenta y seis!</div></div></section>
+<section class="clip lyr" id="ly12" data-start="26.089" data-duration="1.371" data-track-index="3"><div class="lyrw"><div class="lyric">(Dos a la ocho, ¡ya lo ves!)</div></div></section>
+<section class="clip lyr" id="ly13" data-start="27.460" data-duration="2.478" data-track-index="3"><div class="lyrw"><div class="lyric">Y el final da vueltas: dos, cuatro, ocho, seis</div></div></section>
+<section class="clip lyr" id="ly14" data-start="29.938" data-duration="2.154" data-track-index="3"><div class="lyrw"><div class="lyric">Dos, cuatro, ocho, seis (¡otra vez!)</div></div></section>
+<section class="clip lyr" id="ly15" data-start="32.092" data-duration="1.080" data-track-index="3"><div class="lyrw"><div class="lyric">Tres, nueve, veintisiete</div></div></section>
+<section class="clip lyr" id="ly16" data-start="33.172" data-duration="1.348" data-track-index="3"><div class="lyrw"><div class="lyric">Ochenta y uno… (¡y qué!)</div></div></section>
+<section class="clip lyr" id="ly17" data-start="34.520" data-duration="1.415" data-track-index="3"><div class="lyrw"><div class="lyric">Doscientos cuarenta y tres</div></div></section>
+<section class="clip lyr" id="ly18" data-start="35.935" data-duration="1.385" data-track-index="3"><div class="lyrw"><div class="lyric">(Empieza en tres y acaba en tres)</div></div></section>
+<section class="clip lyr" id="ly19" data-start="37.320" data-duration="1.040" data-track-index="3"><div class="lyrw"><div class="lyric">Cuatro, dieciséis</div></div></section>
+<section class="clip lyr" id="ly20" data-start="38.360" data-duration="1.423" data-track-index="3"><div class="lyrw"><div class="lyric">Sesenta y cuatro (¡eso es!)</div></div></section>
+<section class="clip lyr" id="ly21" data-start="39.783" data-duration="2.003" data-track-index="3"><div class="lyrw"><div class="lyric">Doscientos cincuenta y seis</div></div></section>
+<section class="clip lyr" id="ly22" data-start="41.786" data-duration="1.242" data-track-index="3"><div class="lyrw"><div class="lyric">Cinco, veinticinco</div></div></section>
+<section class="clip lyr" id="ly23" data-start="43.028" data-duration="1.219" data-track-index="3"><div class="lyrw"><div class="lyric">Ciento veinticinco</div></div></section>
+<section class="clip lyr" id="ly24" data-start="44.247" data-duration="1.399" data-track-index="3"><div class="lyrw"><div class="lyric">Seiscientos veinticinco</div></div></section>
+<section class="clip lyr" id="ly25" data-start="45.646" data-duration="1.678" data-track-index="3"><div class="lyrw"><div class="lyric">(¡Todos acaban en cinco!)</div></div></section>
+<section class="clip lyr" id="ly26" data-start="47.324" data-duration="2.166" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado, cubo y raíz</div></div></section>
+<section class="clip lyr" id="ly27" data-start="49.490" data-duration="2.745" data-track-index="3"><div class="lyrw"><div class="lyric">el GMAT me hace feliz (¡feliz!)</div></div></section>
+<section class="clip lyr" id="ly28" data-start="52.235" data-duration="1.684" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado, cubo y raíz</div></div></section>
+<section class="clip lyr" id="ly29" data-start="53.919" data-duration="1.996" data-track-index="3"><div class="lyrw"><div class="lyric">me lo sé, me lo sé… ¡así!</div></div></section>
+<section class="clip lyr" id="ly30" data-start="55.915" data-duration="2.450" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de dos, uno cuarenta y uno (¡uno!)</div></div></section>
+<section class="clip lyr" id="ly31" data-start="58.365" data-duration="2.450" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de tres, uno setenta y tres (¡tres!)</div></div></section>
+<section class="clip lyr" id="ly32" data-start="60.815" data-duration="2.450" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de cinco, dos veinticuatro</div></div></section>
+<section class="clip lyr" id="ly33" data-start="63.265" data-duration="2.449" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de seis, dos cuarenta y cinco</div></div></section>
+<section class="clip lyr" id="ly34" data-start="65.714" data-duration="2.450" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de siete, dos sesenta y cinco</div></div></section>
+<section class="clip lyr" id="ly35" data-start="68.164" data-duration="2.450" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de ocho, dos ochenta y tres</div></div></section>
+<section class="clip lyr" id="ly36" data-start="70.614" data-duration="3.825" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de diez… ¡tres dieciséis!</div></div></section>
+<section class="clip lyr" id="ly37" data-start="74.439" data-duration="3.959" data-track-index="3"><div class="lyrw"><div class="lyric">(Raíz de cuatro, dos. ¡Raíz de uno, uno!)</div></div></section>
+<section class="clip lyr" id="ly38" data-start="78.398" data-duration="2.872" data-track-index="3"><div class="lyrw"><div class="lyric">Seis por seis, treinta y seis</div></div></section>
+<section class="clip lyr" id="ly39" data-start="81.270" data-duration="2.022" data-track-index="3"><div class="lyrw"><div class="lyric">Seis al cubo, doscientos dieciséis</div></div></section>
+<section class="clip lyr" id="ly40" data-start="83.292" data-duration="2.588" data-track-index="3"><div class="lyrw"><div class="lyric">(El seis, el seis… ¡siempre acaba en seis!)</div></div></section>
+<section class="clip lyr" id="ly41" data-start="85.880" data-duration="2.288" data-track-index="3"><div class="lyrw"><div class="lyric">Siete por siete, cuarenta y nueve</div></div></section>
+<section class="clip lyr" id="ly42" data-start="88.168" data-duration="2.589" data-track-index="3"><div class="lyrw"><div class="lyric">Al cubo, trescientos cuarenta y tres</div></div></section>
+<section class="clip lyr" id="ly43" data-start="90.757" data-duration="2.461" data-track-index="3"><div class="lyrw"><div class="lyric">(Siete, nueve, tres, uno… ¡y vuelta otra vez!)</div></div></section>
+<section class="clip lyr" id="ly44" data-start="93.218" data-duration="2.264" data-track-index="3"><div class="lyrw"><div class="lyric">Ocho por ocho, sesenta y cuatro</div></div></section>
+<section class="clip lyr" id="ly45" data-start="95.482" data-duration="2.137" data-track-index="3"><div class="lyrw"><div class="lyric">Al cubo, quinientos doce (¡doce!)</div></div></section>
+<section class="clip lyr" id="ly46" data-start="97.619" data-duration="2.763" data-track-index="3"><div class="lyrw"><div class="lyric">Nueve por nueve, ochenta y uno</div></div></section>
+<section class="clip lyr" id="ly47" data-start="100.382" data-duration="2.113" data-track-index="3"><div class="lyrw"><div class="lyric">Al cubo, setecientos veintinueve</div></div></section>
+<section class="clip lyr" id="ly48" data-start="102.495" data-duration="2.589" data-track-index="3"><div class="lyrw"><div class="lyric">(Par acaba en uno, impar acaba en nueve)</div></div></section>
+<section class="clip lyr" id="ly49" data-start="105.084" data-duration="0.998" data-track-index="3"><div class="lyrw"><div class="lyric">(¡Al cuadrado!)</div></div></section>
+<section class="clip lyr" id="ly50" data-start="106.082" data-duration="1.858" data-track-index="3"><div class="lyrw"><div class="lyric">Once, ciento veintiuno</div></div></section>
+<section class="clip lyr" id="ly51" data-start="107.940" data-duration="1.540" data-track-index="3"><div class="lyrw"><div class="lyric">Doce, ciento cuarenta y cuatro</div></div></section>
+<section class="clip lyr" id="ly52" data-start="109.480" data-duration="3.533" data-track-index="3"><div class="lyrw"><div class="lyric">Y al revés, veintiuno, cuatrocientos cuarenta y uno (¡espejo!)</div></div></section>
+<section class="clip lyr" id="ly53" data-start="113.013" data-duration="2.125" data-track-index="3"><div class="lyrw"><div class="lyric">Trece, ciento sesenta y nueve</div></div></section>
+<section class="clip lyr" id="ly54" data-start="115.138" data-duration="2.602" data-track-index="3"><div class="lyrw"><div class="lyric">Catorce, ciento noventa y seis</div></div></section>
+<section class="clip lyr" id="ly55" data-start="117.740" data-duration="1.930" data-track-index="3"><div class="lyrw"><div class="lyric">Quince, doscientos veinticinco</div></div></section>
+<section class="clip lyr" id="ly56" data-start="119.670" data-duration="2.626" data-track-index="3"><div class="lyrw"><div class="lyric">Dieciséis, doscientos cincuenta y seis</div></div></section>
+<section class="clip lyr" id="ly57" data-start="122.296" data-duration="2.420" data-track-index="3"><div class="lyrw"><div class="lyric">Diecisiete, doscientos ochenta y nueve</div></div></section>
+<section class="clip lyr" id="ly58" data-start="124.716" data-duration="1.835" data-track-index="3"><div class="lyrw"><div class="lyric">Dieciocho, trescientos veinticuatro</div></div></section>
+<section class="clip lyr" id="ly59" data-start="126.551" data-duration="2.740" data-track-index="3"><div class="lyrw"><div class="lyric">Diecinueve, trescientos sesenta y uno</div></div></section>
+<section class="clip lyr" id="ly60" data-start="129.291" data-duration="1.639" data-track-index="3"><div class="lyrw"><div class="lyric">Veinte, ¡cuatrocientos!</div></div></section>
+<section class="clip lyr" id="ly61" data-start="130.930" data-duration="0.497" data-track-index="3"><div class="lyrw"><div class="lyric">(¡Al cuadrado!)</div></div></section>
+<section class="clip lyr" id="ly62" data-start="131.427" data-duration="2.415" data-track-index="3"><div class="lyrw"><div class="lyric">Veintidós, cuatrocientos ochenta y cuatro</div></div></section>
+<section class="clip lyr" id="ly63" data-start="133.842" data-duration="1.811" data-track-index="3"><div class="lyrw"><div class="lyric">Veintitrés, quinientos veintinueve</div></div></section>
+<section class="clip lyr" id="ly64" data-start="135.653" data-duration="2.438" data-track-index="3"><div class="lyrw"><div class="lyric">Veinticuatro, quinientos setenta y seis</div></div></section>
+<section class="clip lyr" id="ly65" data-start="138.091" data-duration="2.432" data-track-index="3"><div class="lyrw"><div class="lyric">Veintiséis, seiscientos setenta y seis</div></div></section>
+<section class="clip lyr" id="ly66" data-start="140.523" data-duration="1.797" data-track-index="3"><div class="lyrw"><div class="lyric">(¡Setenta y seis, setenta y seis!)</div></div></section>
+<section class="clip lyr" id="ly67" data-start="142.320" data-duration="2.280" data-track-index="3"><div class="lyrw"><div class="lyric">Veinticinco, seiscientos veinticinco (¡cinco, cinco!)</div></div></section>
+<section class="clip lyr" id="ly68" data-start="144.600" data-duration="3.320" data-track-index="3"><div class="lyrw"><div class="lyric">Veintisiete, setecientos veintinueve (¡como nueve al cubo!)</div></div></section>
+<section class="clip lyr" id="ly69" data-start="147.920" data-duration="2.300" data-track-index="3"><div class="lyrw"><div class="lyric">Veintiocho, setecientos ochenta y cuatro</div></div></section>
+<section class="clip lyr" id="ly70" data-start="150.220" data-duration="3.057" data-track-index="3"><div class="lyrw"><div class="lyric">Veintinueve, ochocientos cuarenta y uno</div></div></section>
+<section class="clip lyr" id="ly71" data-start="153.277" data-duration="2.683" data-track-index="3"><div class="lyrw"><div class="lyric">Treinta… ¡novecientos!</div></div></section>
+<section class="clip lyr" id="ly72" data-start="155.960" data-duration="2.070" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado, cubo y raíz</div></div></section>
+<section class="clip lyr" id="ly73" data-start="158.030" data-duration="2.642" data-track-index="3"><div class="lyrw"><div class="lyric">el GMAT me hace feliz (¡feliz!)</div></div></section>
+<section class="clip lyr" id="ly74" data-start="160.672" data-duration="1.742" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado, cubo y raíz</div></div></section>
+<section class="clip lyr" id="ly75" data-start="162.414" data-duration="1.886" data-track-index="3"><div class="lyrw"><div class="lyric">me lo sé, me lo sé… ¡así!</div></div></section>
+<section class="clip lyr" id="ly76" data-start="164.300" data-duration="2.694" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado perfecto, rómpelo en primos</div></div></section>
+<section class="clip lyr" id="ly77" data-start="166.994" data-duration="2.258" data-track-index="3"><div class="lyrw"><div class="lyric">¿Y los exponentes? (¡Pares, pares!)</div></div></section>
+<section class="clip lyr" id="ly78" data-start="169.252" data-duration="2.299" data-track-index="3"><div class="lyrw"><div class="lyric">¿Y los divisores? (¡Impares, impares!)</div></div></section>
+<section class="clip lyr" id="ly79" data-start="171.551" data-duration="2.740" data-track-index="3"><div class="lyrw"><div class="lyric">Nueve enteros seguidos, multiplicados</div></div></section>
+<section class="clip lyr" id="ly80" data-start="174.291" data-duration="3.494" data-track-index="3"><div class="lyrw"><div class="lyric">¿Entre nueve? (¡Siempre, siempre!)</div></div></section>
+<section class="clip lyr" id="ly81" data-start="177.785" data-duration="2.439" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de dos, uno cuarenta y uno (¡uno!)</div></div></section>
+<section class="clip lyr" id="ly82" data-start="180.224" data-duration="2.426" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de tres, uno setenta y tres (¡tres!)</div></div></section>
+<section class="clip lyr" id="ly83" data-start="182.650" data-duration="2.426" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de cinco, dos veinticuatro</div></div></section>
+<section class="clip lyr" id="ly84" data-start="185.076" data-duration="2.415" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de seis, dos cuarenta y cinco</div></div></section>
+<section class="clip lyr" id="ly85" data-start="187.491" data-duration="2.438" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de siete, dos sesenta y cinco</div></div></section>
+<section class="clip lyr" id="ly86" data-start="189.929" data-duration="2.415" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de ocho, dos ochenta y tres</div></div></section>
+<section class="clip lyr" id="ly87" data-start="192.344" data-duration="3.796" data-track-index="3"><div class="lyrw"><div class="lyric">Raíz de diez… ¡tres dieciséis!</div></div></section>
+<section class="clip lyr" id="ly88" data-start="196.140" data-duration="2.030" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado, cubo y raíz</div></div></section>
+<section class="clip lyr" id="ly89" data-start="198.170" data-duration="2.650" data-track-index="3"><div class="lyrw"><div class="lyric">el GMAT me hace feliz (¡feliz!)</div></div></section>
+<section class="clip lyr" id="ly90" data-start="200.820" data-duration="1.660" data-track-index="3"><div class="lyrw"><div class="lyric">Cuadrado, cubo y raíz</div></div></section>
+<section class="clip lyr" id="ly91" data-start="202.480" data-duration="2.717" data-track-index="3"><div class="lyrw"><div class="lyric">me lo sé, me lo sé… ¡así!</div></div></section>
+<section class="clip lyr" id="ly92" data-start="205.197" data-duration="4.593" data-track-index="3"><div class="lyrw"><div class="lyric">(¡Dos, cuatro, ocho, seis! ¡Siete, nueve, tres, uno!)</div></div></section>
+<section class="clip lab" id="lb0" data-start="0.000" data-duration="1.082" data-track-index="4"><div class="labw"><div class="label">COMMON SQUARES, CUBES AND SQUARE ROOTS</div></div></section>
+<section class="clip lab" id="lb1" data-start="1.082" data-duration="6.815" data-track-index="4"><div class="labw"><div class="label">UNO A LA QUE QUIERAS</div></div></section>
+<section class="clip lab" id="lb2" data-start="7.897" data-duration="9.253" data-track-index="4"><div class="labw"><div class="label">ESTRIBILLO</div></div></section>
+<section class="clip lab" id="lb3" data-start="17.150" data-duration="10.310" data-track-index="4"><div class="labw"><div class="label">POTENCIAS DE 2</div></div></section>
+<section class="clip lab" id="lb4" data-start="27.460" data-duration="4.632" data-track-index="4"><div class="labw"><div class="label">LA ÚLTIMA CIFRA DE 2<span class="sup">n</span></div></div></section>
+<section class="clip lab" id="lb5" data-start="32.092" data-duration="5.228" data-track-index="4"><div class="labw"><div class="label">POTENCIAS DE 3</div></div></section>
+<section class="clip lab" id="lb6" data-start="37.320" data-duration="4.466" data-track-index="4"><div class="labw"><div class="label">POTENCIAS DE 4</div></div></section>
+<section class="clip lab" id="lb7" data-start="41.786" data-duration="5.538" data-track-index="4"><div class="labw"><div class="label">POTENCIAS DE 5</div></div></section>
+<section class="clip lab" id="lb8" data-start="47.324" data-duration="8.591" data-track-index="4"><div class="labw"><div class="label">ESTRIBILLO</div></div></section>
+<section class="clip lab" id="lb9" data-start="55.915" data-duration="22.483" data-track-index="4"><div class="labw"><div class="label">RAÍCES</div></div></section>
+<section class="clip lab" id="lb10" data-start="78.398" data-duration="7.482" data-track-index="4"><div class="labw"><div class="label">EL 6</div></div></section>
+<section class="clip lab" id="lb11" data-start="85.880" data-duration="4.877" data-track-index="4"><div class="labw"><div class="label">EL 7</div></div></section>
+<section class="clip lab" id="lb12" data-start="90.757" data-duration="2.461" data-track-index="4"><div class="labw"><div class="label">LA ÚLTIMA CIFRA DE 7<span class="sup">n</span></div></div></section>
+<section class="clip lab" id="lb13" data-start="93.218" data-duration="4.401" data-track-index="4"><div class="labw"><div class="label">EL 8</div></div></section>
+<section class="clip lab" id="lb14" data-start="97.619" data-duration="4.876" data-track-index="4"><div class="labw"><div class="label">EL 9</div></div></section>
+<section class="clip lab" id="lb15" data-start="102.495" data-duration="2.589" data-track-index="4"><div class="labw"><div class="label">LA ÚLTIMA CIFRA DE 9<span class="sup">n</span></div></div></section>
+<section class="clip lab" id="lb16" data-start="105.084" data-duration="50.876" data-track-index="4"><div class="labw"><div class="label">AL CUADRADO</div></div></section>
+<section class="clip lab" id="lb17" data-start="155.960" data-duration="8.340" data-track-index="4"><div class="labw"><div class="label">ESTRIBILLO</div></div></section>
+<section class="clip lab" id="lb18" data-start="164.300" data-duration="7.251" data-track-index="4"><div class="labw"><div class="label">CUADRADOS PERFECTOS</div></div></section>
+<section class="clip lab" id="lb19" data-start="171.551" data-duration="6.234" data-track-index="4"><div class="labw"><div class="label">9 ENTEROS SEGUIDOS</div></div></section>
+<section class="clip lab" id="lb20" data-start="177.785" data-duration="18.355" data-track-index="4"><div class="labw"><div class="label">RAÍCES</div></div></section>
+<section class="clip lab" id="lb21" data-start="196.140" data-duration="9.057" data-track-index="4"><div class="labw"><div class="label">ESTRIBILLO</div></div></section>
+<section class="clip lab" id="lb22" data-start="205.197" data-duration="4.593" data-track-index="4"><div class="labw"><div class="label">LAS ÚLTIMAS CIFRAS</div></div></section>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo('#it0 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},0.000);
+tl.fromTo('#it0 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},0.000);
+tl.to('#it0 .bgw',{scale:1+0.0054,duration:0.452,ease:'none'},0.610);
+tl.fromTo('#it1 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},1.082);
+tl.fromTo('#it1 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},1.082);
+tl.to('#it1 .bgw',{scale:1+0.0054,duration:0.449,ease:'none'},1.692);
+tl.fromTo('#it2 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.272,ease:'expo.out'},2.161);
+tl.fromTo('#it2 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.403,ease:'expo.out'},2.161);
+tl.fromTo('#it3 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},2.614);
+tl.fromTo('#it3 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},2.614);
+tl.fromTo('#it4 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},3.554);
+tl.fromTo('#it4 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},3.554);
+tl.to('#it4 .bgw',{scale:1+0.0056,duration:0.468,ease:'none'},4.164);
+tl.fromTo('#it5 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.282,ease:'expo.out'},4.652);
+tl.set('#it5 .bgw',{opacity:1,scale:1},4.652);
+tl.to('#it5 .bgw',{scale:1+0.0053,duration:0.440,ease:'none'},4.662);
+tl.fromTo('#it6 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},5.122);
+tl.set('#it6 .bgw',{opacity:1,scale:1},5.122);
+tl.to('#it6 .bgw',{scale:1+0.0329,duration:2.745,ease:'none'},5.132);
+tl.fromTo('#it7 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},7.897);
+tl.fromTo('#it7 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},7.897);
+tl.fromTo('#it8 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.272,ease:'expo.out'},8.837);
+tl.fromTo('#it8 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.403,ease:'expo.out'},8.837);
+tl.fromTo('#it9 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},9.290);
+tl.fromTo('#it9 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},9.290);
+tl.to('#it9 .bgw',{scale:1+0.0074,duration:0.618,ease:'none'},9.900);
+tl.fromTo('#it10 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},10.538);
+tl.fromTo('#it10 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},10.538);
+tl.fromTo('#it11 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},11.449);
+tl.fromTo('#it11 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},11.449);
+tl.to('#it11 .bgw',{scale:1+0.0092,duration:0.763,ease:'none'},12.059);
+tl.fromTo('#it12 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},12.842);
+tl.fromTo('#it12 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},12.842);
+tl.set('#it13 .fgw',{opacity:1},13.760);
+tl.fromTo('#it13 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.252,ease:'expo.out'},13.760);
+tl.set('#it14 .fgw',{opacity:1},14.062);
+tl.fromTo('#it14 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.408,ease:'expo.out'},14.062);
+tl.fromTo('#it15 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},14.520);
+tl.fromTo('#it15 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},14.520);
+tl.to('#it15 .bgw',{scale:1+0.0092,duration:0.769,ease:'none'},15.130);
+tl.fromTo('#it16 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},15.919);
+tl.set('#it16 .bgw',{opacity:1,scale:1},15.919);
+tl.to('#it16 .bgw',{scale:1+0.0144,duration:1.201,ease:'none'},15.929);
+tl.fromTo('#it17 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},17.150);
+tl.fromTo('#it17 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},17.150);
+tl.to('#it17 .bgw',{scale:1+0.0238,duration:1.982,ease:'none'},17.760);
+tl.fromTo('#it18 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.278,ease:'expo.out'},19.762);
+tl.fromTo('#it18 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.414,ease:'expo.out'},19.762);
+tl.fromTo('#it19 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.283,ease:'expo.out'},20.226);
+tl.fromTo('#it19 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.421,ease:'expo.out'},20.226);
+tl.fromTo('#it20 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.094,ease:'expo.out'},20.697);
+tl.fromTo('#it20 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.150,ease:'expo.out'},20.697);
+tl.fromTo('#it21 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},20.853);
+tl.fromTo('#it21 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},20.853);
+tl.fromTo('#it22 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},21.771);
+tl.fromTo('#it22 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},21.771);
+tl.fromTo('#it23 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},22.699);
+tl.fromTo('#it23 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},22.699);
+tl.fromTo('#it24 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},23.471);
+tl.fromTo('#it24 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},23.471);
+tl.to('#it24 .bgw',{scale:1+0.0055,duration:0.456,ease:'none'},24.081);
+tl.fromTo('#it25 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},24.557);
+tl.fromTo('#it25 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},24.557);
+tl.to('#it25 .bgw',{scale:1+0.0108,duration:0.902,ease:'none'},25.167);
+tl.fromTo('#it26 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},26.089);
+tl.set('#it26 .bgw',{opacity:1,scale:1},26.089);
+tl.to('#it26 .bgw',{scale:1+0.0163,duration:1.358,ease:'none'},26.099);
+tl.fromTo('#it26 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},26.169);
+tl.fromTo('#it27 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},27.477);
+tl.fromTo('#it27 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},27.477);
+tl.to('#it27 .bgw',{scale:1+0.0072,duration:0.600,ease:'none'},28.087);
+tl.fromTo('#it27 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},27.627);
+tl.fromTo('#it28 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.373,ease:'expo.out'},28.707);
+tl.fromTo('#it28 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.572,ease:'expo.out'},28.707);
+tl.fromTo('#it28 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},28.787);
+tl.fromTo('#it29 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.091,ease:'expo.out'},29.329);
+tl.fromTo('#it29 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.150,ease:'expo.out'},29.329);
+tl.fromTo('#it29 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.100,ease:'power2.out',stagger:0.06},29.409);
+tl.fromTo('#it30 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.181,ease:'expo.out'},29.480);
+tl.fromTo('#it30 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.251,ease:'expo.out'},29.480);
+tl.fromTo('#it30 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.201,ease:'power2.out',stagger:0.06},29.560);
+tl.fromTo('#it31 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.094,ease:'expo.out'},29.781);
+tl.fromTo('#it31 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.150,ease:'expo.out'},29.781);
+tl.fromTo('#it31 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.100,ease:'power2.out',stagger:0.06},29.861);
+tl.fromTo('#it32 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.282,ease:'expo.out'},29.938);
+tl.fromTo('#it32 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.420,ease:'expo.out'},29.938);
+tl.fromTo('#it32 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},30.018);
+tl.fromTo('#it33 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.272,ease:'expo.out'},30.408);
+tl.fromTo('#it33 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.403,ease:'expo.out'},30.408);
+tl.fromTo('#it33 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},30.488);
+tl.fromTo('#it34 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.091,ease:'expo.out'},30.861);
+tl.fromTo('#it34 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.150,ease:'expo.out'},30.861);
+tl.fromTo('#it34 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.100,ease:'power2.out',stagger:0.06},30.941);
+tl.fromTo('#it35 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.094,ease:'expo.out'},31.012);
+tl.fromTo('#it35 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.150,ease:'expo.out'},31.012);
+tl.fromTo('#it35 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.100,ease:'power2.out',stagger:0.06},31.092);
+tl.fromTo('#it36 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},31.169);
+tl.fromTo('#it36 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},31.169);
+tl.fromTo('#it36 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},31.319);
+tl.fromTo('#it37 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.278,ease:'expo.out'},32.092);
+tl.fromTo('#it37 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.414,ease:'expo.out'},32.092);
+tl.fromTo('#it38 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.188,ease:'expo.out'},32.556);
+tl.fromTo('#it38 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.264,ease:'expo.out'},32.556);
+tl.fromTo('#it39 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.181,ease:'expo.out'},32.870);
+tl.fromTo('#it39 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.252,ease:'expo.out'},32.870);
+tl.fromTo('#it40 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},33.172);
+tl.fromTo('#it40 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},33.172);
+tl.to('#it40 .bgw',{scale:1+0.0090,duration:0.751,ease:'none'},33.782);
+tl.fromTo('#it41 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},34.553);
+tl.fromTo('#it41 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},34.553);
+tl.to('#it41 .bgw',{scale:1+0.0090,duration:0.752,ease:'none'},35.163);
+tl.fromTo('#it42 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},35.935);
+tl.fromTo('#it42 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},35.935);
+tl.to('#it42 .bgw',{scale:1+0.0091,duration:0.757,ease:'none'},36.545);
+tl.fromTo('#it42 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},36.015);
+tl.fromTo('#it42 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},36.085);
+tl.fromTo('#it43 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.282,ease:'expo.out'},37.322);
+tl.fromTo('#it43 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.420,ease:'expo.out'},37.322);
+tl.fromTo('#it44 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.362,ease:'expo.out'},37.792);
+tl.fromTo('#it44 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.554,ease:'expo.out'},37.792);
+tl.fromTo('#it45 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},38.396);
+tl.fromTo('#it45 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},38.396);
+tl.to('#it45 .bgw',{scale:1+0.0091,duration:0.757,ease:'none'},39.006);
+tl.fromTo('#it46 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},39.783);
+tl.fromTo('#it46 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},39.783);
+tl.to('#it46 .bgw',{scale:1+0.0165,duration:1.373,ease:'none'},40.393);
+tl.fromTo('#it47 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.275,ease:'expo.out'},41.786);
+tl.fromTo('#it47 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.409,ease:'expo.out'},41.786);
+tl.fromTo('#it48 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},42.245);
+tl.fromTo('#it48 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},42.245);
+tl.fromTo('#it49 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},43.028);
+tl.fromTo('#it49 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},43.028);
+tl.to('#it49 .bgw',{scale:1+0.0071,duration:0.589,ease:'none'},43.638);
+tl.fromTo('#it50 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},44.247);
+tl.fromTo('#it50 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},44.247);
+tl.to('#it50 .bgw',{scale:1+0.0092,duration:0.769,ease:'none'},44.857);
+tl.fromTo('#it51 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},45.646);
+tl.fromTo('#it51 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},45.646);
+tl.to('#it51 .bgw',{scale:1+0.0126,duration:1.048,ease:'none'},46.256);
+tl.fromTo('#it51 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},45.726);
+tl.fromTo('#it51 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},45.796);
+tl.fromTo('#it52 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},47.324);
+tl.fromTo('#it52 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},47.324);
+tl.fromTo('#it53 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.188,ease:'expo.out'},48.241);
+tl.fromTo('#it53 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.264,ease:'expo.out'},48.241);
+tl.fromTo('#it54 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},48.555);
+tl.fromTo('#it54 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},48.555);
+tl.to('#it54 .bgw',{scale:1+0.0089,duration:0.740,ease:'none'},49.165);
+tl.fromTo('#it55 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},49.925);
+tl.fromTo('#it55 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},49.925);
+tl.fromTo('#it56 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},50.854);
+tl.fromTo('#it56 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},50.854);
+tl.to('#it56 .bgw',{scale:1+0.0090,duration:0.751,ease:'none'},51.464);
+tl.fromTo('#it57 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},52.235);
+tl.fromTo('#it57 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},52.235);
+tl.set('#it58 .fgw',{opacity:1},53.141);
+tl.fromTo('#it58 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.263,ease:'expo.out'},53.141);
+tl.set('#it59 .fgw',{opacity:1},53.454);
+tl.fromTo('#it59 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.415,ease:'expo.out'},53.454);
+tl.fromTo('#it60 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},53.919);
+tl.fromTo('#it60 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},53.919);
+tl.to('#it60 .bgw',{scale:1+0.0090,duration:0.751,ease:'none'},54.529);
+tl.fromTo('#it61 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.369,ease:'expo.out'},55.300);
+tl.set('#it61 .bgw',{opacity:1,scale:1},55.300);
+tl.to('#it61 .bgw',{scale:1+0.0070,duration:0.585,ease:'none'},55.310);
+tl.fromTo('#it62 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},55.915);
+tl.set('#it62 .ans',{opacity:0},55.915);
+tl.fromTo('#it62 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},57.285);
+tl.fromTo('#it62 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},55.915);
+tl.to('#it62 .bgw',{scale:1.03,duration:0.740,ease:'none'},56.525);
+tl.fromTo('#it62 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},57.285);
+tl.to('#it62 .bgw',{scale:1+0.0072,duration:0.600,ease:'none'},57.745);
+tl.fromTo('#it63 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},58.365);
+tl.set('#it63 .ans',{opacity:0},58.365);
+tl.fromTo('#it63 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},59.741);
+tl.fromTo('#it63 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},58.365);
+tl.to('#it63 .bgw',{scale:1.03,duration:0.746,ease:'none'},58.975);
+tl.fromTo('#it63 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},59.741);
+tl.to('#it63 .bgw',{scale:1+0.0071,duration:0.594,ease:'none'},60.201);
+tl.fromTo('#it64 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},60.815);
+tl.set('#it64 .ans',{opacity:0},60.815);
+tl.fromTo('#it64 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},62.336);
+tl.fromTo('#it64 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},60.815);
+tl.to('#it64 .bgw',{scale:1.03,duration:0.891,ease:'none'},61.425);
+tl.fromTo('#it64 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},62.336);
+tl.to('#it64 .bgw',{scale:1+0.0054,duration:0.449,ease:'none'},62.796);
+tl.fromTo('#it65 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},63.265);
+tl.set('#it65 .ans',{opacity:0},63.265);
+tl.fromTo('#it65 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},64.646);
+tl.fromTo('#it65 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},63.265);
+tl.to('#it65 .bgw',{scale:1.03,duration:0.751,ease:'none'},63.875);
+tl.fromTo('#it65 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},64.646);
+tl.to('#it65 .bgw',{scale:1+0.0071,duration:0.588,ease:'none'},65.106);
+tl.fromTo('#it66 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},65.714);
+tl.set('#it66 .ans',{opacity:0},65.714);
+tl.fromTo('#it66 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},67.102);
+tl.fromTo('#it66 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},65.714);
+tl.to('#it66 .bgw',{scale:1.03,duration:0.758,ease:'none'},66.324);
+tl.fromTo('#it66 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},67.102);
+tl.to('#it66 .bgw',{scale:1+0.0070,duration:0.582,ease:'none'},67.562);
+tl.fromTo('#it67 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},68.164);
+tl.set('#it67 .ans',{opacity:0},68.164);
+tl.fromTo('#it67 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},69.546);
+tl.fromTo('#it67 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},68.164);
+tl.to('#it67 .bgw',{scale:1.03,duration:0.752,ease:'none'},68.774);
+tl.fromTo('#it67 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},69.546);
+tl.to('#it67 .bgw',{scale:1+0.0071,duration:0.588,ease:'none'},70.006);
+tl.fromTo('#it68 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},70.614);
+tl.set('#it68 .ans',{opacity:0},70.614);
+tl.fromTo('#it68 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},73.063);
+tl.fromTo('#it68 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},70.614);
+tl.to('#it68 .bgw',{scale:1.03,duration:1.819,ease:'none'},71.224);
+tl.fromTo('#it68 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},73.063);
+tl.to('#it68 .bgw',{scale:1+0.0108,duration:0.896,ease:'none'},73.523);
+tl.fromTo('#it69 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},74.439);
+tl.set('#it69 .ans',{opacity:0},74.439);
+tl.fromTo('#it69 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},75.652);
+tl.fromTo('#it69 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},74.439);
+tl.to('#it69 .bgw',{scale:1.03,duration:0.583,ease:'none'},75.049);
+tl.fromTo('#it69 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},75.652);
+tl.fromTo('#it70 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},76.407);
+tl.set('#it70 .ans',{opacity:0},76.407);
+tl.fromTo('#it70 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},76.877);
+tl.fromTo('#it70 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.420,ease:'expo.out'},76.407);
+tl.fromTo('#it70 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},76.877);
+tl.to('#it70 .bgw',{scale:1+0.0125,duration:1.041,ease:'none'},77.337);
+tl.fromTo('#it71 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},78.398);
+tl.set('#it71 .ans',{opacity:0},78.398);
+tl.fromTo('#it71 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},80.076);
+tl.fromTo('#it71 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},78.398);
+tl.to('#it71 .bgw',{scale:1.03,duration:1.048,ease:'none'},79.008);
+tl.fromTo('#it71 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},80.076);
+tl.to('#it71 .bgw',{scale:1+0.0090,duration:0.751,ease:'none'},80.536);
+tl.fromTo('#it72 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},81.307);
+tl.set('#it72 .ans',{opacity:0},81.307);
+tl.fromTo('#it72 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},82.363);
+tl.fromTo('#it72 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},81.307);
+tl.to('#it72 .bgw',{scale:1.03,duration:0.426,ease:'none'},81.917);
+tl.fromTo('#it72 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},82.363);
+tl.to('#it72 .bgw',{scale:1+0.0054,duration:0.449,ease:'none'},82.823);
+tl.fromTo('#it73 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},83.292);
+tl.fromTo('#it73 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},83.292);
+tl.to('#it73 .bgw',{scale:1+0.0235,duration:1.959,ease:'none'},83.902);
+tl.fromTo('#it73 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},83.372);
+tl.fromTo('#it73 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},83.442);
+tl.fromTo('#it74 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},85.881);
+tl.set('#it74 .ans',{opacity:0},85.881);
+tl.fromTo('#it74 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},87.257);
+tl.fromTo('#it74 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},85.881);
+tl.to('#it74 .bgw',{scale:1.03,duration:0.746,ease:'none'},86.491);
+tl.fromTo('#it74 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},87.257);
+tl.to('#it74 .bgw',{scale:1+0.0052,duration:0.431,ease:'none'},87.717);
+tl.fromTo('#it75 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},88.168);
+tl.set('#it75 .ans',{opacity:0},88.168);
+tl.fromTo('#it75 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},89.074);
+tl.fromTo('#it75 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},88.168);
+tl.fromTo('#it75 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},89.074);
+tl.to('#it75 .bgw',{scale:1+0.0144,duration:1.203,ease:'none'},89.534);
+tl.fromTo('#it76 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.362,ease:'expo.out'},90.757);
+tl.fromTo('#it76 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.554,ease:'expo.out'},90.757);
+tl.fromTo('#it76 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},90.837);
+tl.fromTo('#it77 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.181,ease:'expo.out'},91.361);
+tl.fromTo('#it77 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.252,ease:'expo.out'},91.361);
+tl.fromTo('#it77 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.202,ease:'power2.out',stagger:0.06},91.441);
+tl.fromTo('#it78 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.188,ease:'expo.out'},91.663);
+tl.fromTo('#it78 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.263,ease:'expo.out'},91.663);
+tl.fromTo('#it78 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.213,ease:'power2.out',stagger:0.06},91.743);
+tl.fromTo('#it79 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.094,ease:'expo.out'},91.976);
+tl.fromTo('#it79 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.150,ease:'expo.out'},91.976);
+tl.fromTo('#it79 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.100,ease:'power2.out',stagger:0.06},92.056);
+tl.fromTo('#it80 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},92.133);
+tl.fromTo('#it80 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},92.133);
+tl.to('#it80 .bgw',{scale:1+0.0055,duration:0.455,ease:'none'},92.743);
+tl.fromTo('#it80 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},92.283);
+tl.fromTo('#it81 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},93.218);
+tl.set('#it81 .ans',{opacity:0},93.218);
+tl.fromTo('#it81 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},94.577);
+tl.fromTo('#it81 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},93.218);
+tl.to('#it81 .bgw',{scale:1.03,duration:0.729,ease:'none'},93.828);
+tl.fromTo('#it81 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},94.577);
+tl.to('#it81 .bgw',{scale:1+0.0051,duration:0.425,ease:'none'},95.037);
+tl.fromTo('#it82 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},95.482);
+tl.set('#it82 .ans',{opacity:0},95.482);
+tl.fromTo('#it82 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},96.405);
+tl.fromTo('#it82 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},95.482);
+tl.fromTo('#it82 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},96.405);
+tl.to('#it82 .bgw',{scale:1+0.0088,duration:0.734,ease:'none'},96.865);
+tl.fromTo('#it83 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},97.619);
+tl.set('#it83 .ans',{opacity:0},97.619);
+tl.fromTo('#it83 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},99.470);
+tl.fromTo('#it83 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},97.619);
+tl.to('#it83 .bgw',{scale:1.03,duration:1.221,ease:'none'},98.229);
+tl.fromTo('#it83 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},99.470);
+tl.to('#it83 .bgw',{scale:1+0.0052,duration:0.432,ease:'none'},99.930);
+tl.fromTo('#it84 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},100.382);
+tl.set('#it84 .ans',{opacity:0},100.382);
+tl.fromTo('#it84 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},101.136);
+tl.fromTo('#it84 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},100.382);
+tl.fromTo('#it84 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},101.136);
+tl.to('#it84 .bgw',{scale:1+0.0105,duration:0.879,ease:'none'},101.596);
+tl.fromTo('#it85 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},102.495);
+tl.fromTo('#it85 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},102.495);
+tl.to('#it85 .bgw',{scale:1+0.0054,duration:0.449,ease:'none'},103.105);
+tl.fromTo('#it85 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},102.575);
+tl.fromTo('#it85 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},102.645);
+tl.fromTo('#it86 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},103.574);
+tl.fromTo('#it86 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},103.574);
+tl.to('#it86 .bgw',{scale:1+0.0106,duration:0.880,ease:'none'},104.184);
+tl.fromTo('#it86 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},103.654);
+tl.fromTo('#it86 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},103.724);
+tl.fromTo('#it87 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},105.084);
+tl.fromTo('#it87 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},105.084);
+tl.fromTo('#it88 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},106.082);
+tl.set('#it88 .ans',{opacity:0},106.082);
+tl.fromTo('#it88 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},106.657);
+tl.fromTo('#it88 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.525,ease:'expo.out'},106.082);
+tl.fromTo('#it88 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},106.657);
+tl.to('#it88 .bgw',{scale:1+0.0096,duration:0.803,ease:'none'},107.117);
+tl.fromTo('#it89 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},107.940);
+tl.set('#it89 .ans',{opacity:0},107.940);
+tl.fromTo('#it89 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},108.642);
+tl.fromTo('#it89 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},107.940);
+tl.fromTo('#it89 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},108.642);
+tl.fromTo('#it90 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},109.513);
+tl.set('#it90 .bgw',{opacity:1,scale:1},109.513);
+tl.to('#it90 .bgw',{scale:1+0.0086,duration:0.719,ease:'none'},109.523);
+tl.fromTo('#it90 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},109.663);
+tl.fromTo('#it91 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},110.262);
+tl.set('#it91 .ans',{opacity:0},110.262);
+tl.fromTo('#it91 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},110.889);
+tl.fromTo('#it91 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.577,ease:'expo.out'},110.262);
+tl.fromTo('#it91 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},110.889);
+tl.to('#it91 .bgw',{scale:1+0.0160,duration:1.331,ease:'none'},111.349);
+tl.fromTo('#it92 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.188,ease:'expo.out'},112.700);
+tl.set('#it92 .bgw',{opacity:1,scale:1},112.700);
+tl.fromTo('#it92 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.213,ease:'power2.out',stagger:0.06},112.780);
+tl.fromTo('#it92 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.200,ease:'expo.out'},112.813);
+tl.fromTo('#it93 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},113.013);
+tl.set('#it93 .ans',{opacity:0},113.013);
+tl.fromTo('#it93 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},113.478);
+tl.fromTo('#it93 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.415,ease:'expo.out'},113.013);
+tl.fromTo('#it93 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},113.478);
+tl.to('#it93 .bgw',{scale:1+0.0142,duration:1.180,ease:'none'},113.938);
+tl.fromTo('#it94 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},115.138);
+tl.set('#it94 .ans',{opacity:0},115.138);
+tl.fromTo('#it94 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},116.067);
+tl.fromTo('#it94 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},115.138);
+tl.fromTo('#it94 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},116.067);
+tl.to('#it94 .bgw',{scale:1+0.0144,duration:1.203,ease:'none'},116.527);
+tl.fromTo('#it95 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},117.750);
+tl.set('#it95 .ans',{opacity:0},117.750);
+tl.fromTo('#it95 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},118.354);
+tl.fromTo('#it95 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.554,ease:'expo.out'},117.750);
+tl.fromTo('#it95 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},118.354);
+tl.to('#it95 .bgw',{scale:1+0.0105,duration:0.878,ease:'none'},118.814);
+tl.fromTo('#it96 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},119.712);
+tl.set('#it96 .ans',{opacity:0},119.712);
+tl.fromTo('#it96 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},120.769);
+tl.fromTo('#it96 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},119.712);
+tl.to('#it96 .bgw',{scale:1.03,duration:0.427,ease:'none'},120.322);
+tl.fromTo('#it96 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},120.769);
+tl.to('#it96 .bgw',{scale:1+0.0126,duration:1.047,ease:'none'},121.229);
+tl.fromTo('#it96 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},120.919);
+tl.fromTo('#it97 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},122.296);
+tl.set('#it97 .ans',{opacity:0},122.296);
+tl.fromTo('#it97 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},123.207);
+tl.fromTo('#it97 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},122.296);
+tl.fromTo('#it97 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},123.207);
+tl.to('#it97 .bgw',{scale:1+0.0123,duration:1.029,ease:'none'},123.667);
+tl.fromTo('#it98 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},124.716);
+tl.set('#it98 .ans',{opacity:0},124.716);
+tl.fromTo('#it98 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},125.628);
+tl.fromTo('#it98 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},124.716);
+tl.fromTo('#it98 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},125.628);
+tl.to('#it98 .bgw',{scale:1+0.0053,duration:0.443,ease:'none'},126.088);
+tl.fromTo('#it99 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},126.551);
+tl.set('#it99 .ans',{opacity:0},126.551);
+tl.fromTo('#it99 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},127.456);
+tl.fromTo('#it99 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},126.551);
+tl.fromTo('#it99 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},127.456);
+tl.to('#it99 .bgw',{scale:1+0.0163,duration:1.355,ease:'none'},127.916);
+tl.fromTo('#it100 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},129.291);
+tl.set('#it100 .ans',{opacity:0},129.291);
+tl.fromTo('#it100 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},130.045);
+tl.fromTo('#it100 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},129.291);
+tl.fromTo('#it100 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},130.045);
+tl.to('#it100 .bgw',{scale:1+0.0054,duration:0.449,ease:'none'},130.505);
+tl.fromTo('#it101 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.272,ease:'expo.out'},130.974);
+tl.fromTo('#it101 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.403,ease:'expo.out'},130.974);
+tl.fromTo('#it102 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},131.427);
+tl.set('#it102 .ans',{opacity:0},131.427);
+tl.fromTo('#it102 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},132.181);
+tl.fromTo('#it102 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},131.427);
+tl.fromTo('#it102 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},132.181);
+tl.to('#it102 .bgw',{scale:1+0.0142,duration:1.181,ease:'none'},132.641);
+tl.fromTo('#it103 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},133.842);
+tl.set('#it103 .ans',{opacity:0},133.842);
+tl.fromTo('#it103 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},134.747);
+tl.fromTo('#it103 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},133.842);
+tl.fromTo('#it103 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},134.747);
+tl.to('#it103 .bgw',{scale:1+0.0051,duration:0.426,ease:'none'},135.207);
+tl.fromTo('#it104 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},135.653);
+tl.set('#it104 .ans',{opacity:0},135.653);
+tl.fromTo('#it104 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},136.564);
+tl.fromTo('#it104 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},135.653);
+tl.fromTo('#it104 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},136.564);
+tl.to('#it104 .bgw',{scale:1+0.0126,duration:1.047,ease:'none'},137.024);
+tl.fromTo('#it105 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},138.091);
+tl.set('#it105 .ans',{opacity:0},138.091);
+tl.fromTo('#it105 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},138.846);
+tl.fromTo('#it105 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},138.091);
+tl.fromTo('#it105 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},138.846);
+tl.to('#it105 .bgw',{scale:1+0.0144,duration:1.197,ease:'none'},139.306);
+tl.fromTo('#it106 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},140.523);
+tl.fromTo('#it106 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},140.523);
+tl.to('#it106 .bgw',{scale:1+0.0142,duration:1.187,ease:'none'},141.133);
+tl.fromTo('#it106 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},140.603);
+tl.fromTo('#it106 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},140.673);
+tl.fromTo('#it107 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},142.340);
+tl.set('#it107 .ans',{opacity:0},142.340);
+tl.fromTo('#it107 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},142.793);
+tl.fromTo('#it107 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.403,ease:'expo.out'},142.340);
+tl.fromTo('#it107 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},142.793);
+tl.to('#it107 .bgw',{scale:1+0.0054,duration:0.449,ease:'none'},143.253);
+tl.fromTo('#it108 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},143.722);
+tl.set('#it108 .bgw',{opacity:1,scale:1},143.722);
+tl.to('#it108 .bgw',{scale:1+0.0105,duration:0.875,ease:'none'},143.732);
+tl.fromTo('#it108 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},143.802);
+tl.fromTo('#it108 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},143.872);
+tl.fromTo('#it109 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},144.627);
+tl.set('#it109 .ans',{opacity:0},144.627);
+tl.fromTo('#it109 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},145.533);
+tl.fromTo('#it109 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},144.627);
+tl.fromTo('#it109 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},145.533);
+tl.to('#it109 .bgw',{scale:1+0.0087,duration:0.727,ease:'none'},145.993);
+tl.fromTo('#it110 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},146.740);
+tl.fromTo('#it110 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},146.740);
+tl.to('#it110 .bgw',{scale:1+0.0069,duration:0.578,ease:'none'},147.350);
+tl.fromTo('#it110 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},146.820);
+tl.fromTo('#it110 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},146.890);
+tl.fromTo('#it111 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},147.948);
+tl.set('#it111 .ans',{opacity:0},147.948);
+tl.fromTo('#it111 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},148.702);
+tl.fromTo('#it111 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},147.948);
+tl.fromTo('#it111 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},148.702);
+tl.to('#it111 .bgw',{scale:1+0.0126,duration:1.053,ease:'none'},149.162);
+tl.fromTo('#it112 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},150.235);
+tl.set('#it112 .ans',{opacity:0},150.235);
+tl.fromTo('#it112 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},150.990);
+tl.fromTo('#it112 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},150.235);
+tl.fromTo('#it112 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},150.990);
+tl.to('#it112 .bgw',{scale:1+0.0217,duration:1.807,ease:'none'},151.450);
+tl.fromTo('#it113 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},153.277);
+tl.set('#it113 .ans',{opacity:0},153.277);
+tl.fromTo('#it113 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},154.182);
+tl.fromTo('#it113 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},153.277);
+tl.fromTo('#it113 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},154.182);
+tl.to('#it113 .bgw',{scale:1+0.0160,duration:1.331,ease:'none'},154.642);
+tl.fromTo('#it114 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},155.993);
+tl.fromTo('#it114 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},155.993);
+tl.fromTo('#it115 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.188,ease:'expo.out'},156.760);
+tl.fromTo('#it115 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.263,ease:'expo.out'},156.760);
+tl.fromTo('#it116 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},157.073);
+tl.fromTo('#it116 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},157.073);
+tl.to('#it116 .bgw',{scale:1+0.0087,duration:0.729,ease:'none'},157.683);
+tl.fromTo('#it117 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},158.432);
+tl.fromTo('#it117 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},158.432);
+tl.to('#it117 .bgw',{scale:1+0.0051,duration:0.426,ease:'none'},159.042);
+tl.fromTo('#it118 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},159.488);
+tl.fromTo('#it118 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},159.488);
+tl.to('#it118 .bgw',{scale:1+0.0066,duration:0.554,ease:'none'},160.098);
+tl.fromTo('#it119 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},160.672);
+tl.fromTo('#it119 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},160.672);
+tl.set('#it120 .fgw',{opacity:1},161.543);
+tl.fromTo('#it120 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.385,ease:'expo.out'},161.543);
+tl.set('#it121 .fgw',{opacity:1},161.978);
+tl.fromTo('#it121 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.386,ease:'expo.out'},161.978);
+tl.fromTo('#it122 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},162.414);
+tl.fromTo('#it122 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},162.414);
+tl.to('#it122 .bgw',{scale:1+0.0081,duration:0.676,ease:'none'},163.024);
+tl.fromTo('#it123 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.348,ease:'expo.out'},163.720);
+tl.set('#it123 .bgw',{opacity:1,scale:1},163.720);
+tl.to('#it123 .bgw',{scale:1+0.0066,duration:0.550,ease:'none'},163.730);
+tl.fromTo('#it124 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},164.300);
+tl.fromTo('#it124 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},164.300);
+tl.to('#it124 .bgw',{scale:1+0.0101,duration:0.839,ease:'none'},164.910);
+tl.fromTo('#it124 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},164.450);
+tl.fromTo('#it125 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},165.769);
+tl.set('#it125 .bgw',{opacity:1,scale:1},165.769);
+tl.to('#it125 .bgw',{scale:1+0.0143,duration:1.195,ease:'none'},165.779);
+tl.fromTo('#it125 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},165.919);
+tl.fromTo('#it126 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},166.994);
+tl.fromTo('#it126 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},166.994);
+tl.to('#it126 .bgw',{scale:1+0.0085,duration:0.711,ease:'none'},167.604);
+tl.fromTo('#it126 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},167.074);
+tl.fromTo('#it126 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},167.144);
+tl.set('#it127 .fgw',{opacity:1},168.335);
+tl.fromTo('#it127 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},168.335);
+tl.fromTo('#it127 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},168.415);
+tl.fromTo('#it127 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},168.485);
+tl.fromTo('#it128 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},169.252);
+tl.fromTo('#it128 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},169.252);
+tl.to('#it128 .bgw',{scale:1+0.0072,duration:0.601,ease:'none'},169.862);
+tl.fromTo('#it128 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},169.402);
+tl.fromTo('#it129 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},170.483);
+tl.set('#it129 .bgw',{opacity:1,scale:1},170.483);
+tl.to('#it129 .bgw',{scale:1+0.0125,duration:1.038,ease:'none'},170.493);
+tl.fromTo('#it129 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},170.563);
+tl.fromTo('#it129 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},170.633);
+tl.fromTo('#it130 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},171.551);
+tl.fromTo('#it130 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},171.551);
+tl.to('#it130 .bgw',{scale:1+0.0253,duration:2.110,ease:'none'},172.161);
+tl.fromTo('#it130 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},171.701);
+tl.fromTo('#it131 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},174.291);
+tl.fromTo('#it131 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},174.291);
+tl.to('#it131 .bgw',{scale:1+0.0142,duration:1.181,ease:'none'},174.901);
+tl.fromTo('#it131 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},174.441);
+tl.fromTo('#it132 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},176.102);
+tl.set('#it132 .bgw',{opacity:1,scale:1},176.102);
+tl.to('#it132 .bgw',{scale:1+0.0198,duration:1.653,ease:'none'},176.112);
+tl.fromTo('#it132 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},176.182);
+tl.fromTo('#it133 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},177.785);
+tl.set('#it133 .ans',{opacity:0},177.785);
+tl.fromTo('#it133 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},179.161);
+tl.fromTo('#it133 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},177.785);
+tl.to('#it133 .bgw',{scale:1.03,duration:0.746,ease:'none'},178.395);
+tl.fromTo('#it133 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},179.161);
+tl.to('#it133 .bgw',{scale:1+0.0070,duration:0.583,ease:'none'},179.621);
+tl.fromTo('#it134 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},180.224);
+tl.set('#it134 .ans',{opacity:0},180.224);
+tl.fromTo('#it134 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},181.582);
+tl.fromTo('#it134 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},180.224);
+tl.to('#it134 .bgw',{scale:1.03,duration:0.728,ease:'none'},180.834);
+tl.fromTo('#it134 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},181.582);
+tl.to('#it134 .bgw',{scale:1+0.0071,duration:0.588,ease:'none'},182.042);
+tl.fromTo('#it135 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},182.650);
+tl.set('#it135 .ans',{opacity:0},182.650);
+tl.fromTo('#it135 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},184.171);
+tl.fromTo('#it135 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},182.650);
+tl.to('#it135 .bgw',{scale:1.03,duration:0.891,ease:'none'},183.260);
+tl.fromTo('#it135 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},184.171);
+tl.to('#it135 .bgw',{scale:1+0.0051,duration:0.425,ease:'none'},184.631);
+tl.fromTo('#it136 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},185.076);
+tl.set('#it136 .ans',{opacity:0},185.076);
+tl.fromTo('#it136 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},186.435);
+tl.fromTo('#it136 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},185.076);
+tl.to('#it136 .bgw',{scale:1.03,duration:0.729,ease:'none'},185.686);
+tl.fromTo('#it136 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},186.435);
+tl.to('#it136 .bgw',{scale:1+0.0069,duration:0.576,ease:'none'},186.895);
+tl.fromTo('#it137 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},187.491);
+tl.set('#it137 .ans',{opacity:0},187.491);
+tl.fromTo('#it137 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},188.850);
+tl.fromTo('#it137 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},187.491);
+tl.to('#it137 .bgw',{scale:1.03,duration:0.729,ease:'none'},188.101);
+tl.fromTo('#it137 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},188.850);
+tl.to('#it137 .bgw',{scale:1+0.0072,duration:0.599,ease:'none'},189.310);
+tl.fromTo('#it138 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},189.929);
+tl.set('#it138 .ans',{opacity:0},189.929);
+tl.fromTo('#it138 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},191.288);
+tl.fromTo('#it138 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},189.929);
+tl.to('#it138 .bgw',{scale:1.03,duration:0.729,ease:'none'},190.539);
+tl.fromTo('#it138 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},191.288);
+tl.to('#it138 .bgw',{scale:1+0.0069,duration:0.576,ease:'none'},191.748);
+tl.fromTo('#it139 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},192.344);
+tl.set('#it139 .ans',{opacity:0},192.344);
+tl.fromTo('#it139 .ans',{opacity:0,scale:1.45},{opacity:1,scale:1,duration:0.420,ease:'back.out(2)'},194.759);
+tl.fromTo('#it139 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},192.344);
+tl.to('#it139 .bgw',{scale:1.03,duration:1.785,ease:'none'},192.954);
+tl.fromTo('#it139 .bgw',{scale:1.14},{scale:1,duration:0.450,ease:'back.out(2)'},194.759);
+tl.to('#it139 .bgw',{scale:1+0.0108,duration:0.902,ease:'none'},195.219);
+tl.fromTo('#it140 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.362,ease:'expo.out'},196.141);
+tl.fromTo('#it140 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.554,ease:'expo.out'},196.141);
+tl.fromTo('#it141 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.271,ease:'expo.out'},196.745);
+tl.fromTo('#it141 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.402,ease:'expo.out'},196.745);
+tl.fromTo('#it142 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},197.197);
+tl.fromTo('#it142 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},197.197);
+tl.to('#it142 .bgw',{scale:1+0.0087,duration:0.729,ease:'none'},197.807);
+tl.fromTo('#it143 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},198.556);
+tl.fromTo('#it143 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},198.556);
+tl.to('#it143 .bgw',{scale:1+0.0051,duration:0.426,ease:'none'},199.166);
+tl.fromTo('#it144 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},199.612);
+tl.fromTo('#it144 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},199.612);
+tl.to('#it144 .bgw',{scale:1+0.0069,duration:0.578,ease:'none'},200.222);
+tl.fromTo('#it145 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},200.820);
+tl.fromTo('#it145 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},200.820);
+tl.set('#it146 .fgw',{opacity:1},201.725);
+tl.fromTo('#it146 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.252,ease:'expo.out'},201.725);
+tl.set('#it147 .fgw',{opacity:1},202.027);
+tl.fromTo('#it147 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.403,ease:'expo.out'},202.027);
+tl.fromTo('#it148 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},202.480);
+tl.fromTo('#it148 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},202.480);
+tl.to('#it148 .bgw',{scale:1+0.0087,duration:0.728,ease:'none'},203.090);
+tl.fromTo('#it149 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},203.838);
+tl.set('#it149 .bgw',{opacity:1,scale:1},203.838);
+tl.to('#it149 .bgw',{scale:1+0.0159,duration:1.329,ease:'none'},203.848);
+tl.fromTo('#it150 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.362,ease:'expo.out'},205.197);
+tl.fromTo('#it150 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.553,ease:'expo.out'},205.197);
+tl.fromTo('#it150 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},205.277);
+tl.fromTo('#it151 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.316,ease:'expo.out'},205.800);
+tl.fromTo('#it151 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.477,ease:'expo.out'},205.800);
+tl.fromTo('#it151 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},205.880);
+tl.fromTo('#it152 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.120,ease:'expo.out'},206.327);
+tl.fromTo('#it152 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.150,ease:'expo.out'},206.327);
+tl.fromTo('#it152 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.100,ease:'power2.out',stagger:0.06},206.407);
+tl.fromTo('#it153 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},206.527);
+tl.fromTo('#it153 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},206.527);
+tl.fromTo('#it153 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},206.607);
+tl.fromTo('#it154 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.384,ease:'expo.out'},207.447);
+tl.fromTo('#it154 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.590,ease:'expo.out'},207.447);
+tl.fromTo('#it154 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},207.527);
+tl.fromTo('#it155 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.180,ease:'expo.out'},208.087);
+tl.fromTo('#it155 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.250,ease:'expo.out'},208.087);
+tl.fromTo('#it155 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.200,ease:'power2.out',stagger:0.06},208.167);
+tl.fromTo('#it156 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.312,ease:'expo.out'},208.387);
+tl.fromTo('#it156 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.470,ease:'expo.out'},208.387);
+tl.fromTo('#it156 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},208.467);
+tl.fromTo('#it157 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},208.907);
+tl.fromTo('#it157 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},208.907);
+tl.fromTo('#it157 .fg .mk i',{scaleX:0},{scaleX:1,duration:0.350,ease:'power2.out',stagger:0.06},208.987);
+tl.fromTo('#it158 .fgw',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.400,ease:'expo.out'},209.790);
+tl.fromTo('#it158 .bgw',{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.600,ease:'expo.out'},209.790);
+tl.to('#it158 .bgw',{scale:1+0.0194,duration:1.620,ease:'none'},210.400);
+tl.fromTo('#it158 .notew',{opacity:0,y:16},{opacity:1,y:0,duration:0.450,ease:'expo.out'},209.940);
+tl.fromTo('#ly0 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},0.000);
+tl.fromTo('#ly1 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},1.082);
+tl.fromTo('#ly2 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},3.554);
+tl.fromTo('#ly3 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},7.897);
+tl.fromTo('#ly4 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},10.110);
+tl.fromTo('#ly5 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},12.842);
+tl.fromTo('#ly6 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},14.520);
+tl.fromTo('#ly7 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},17.150);
+tl.fromTo('#ly8 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},19.750);
+tl.fromTo('#ly9 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},21.771);
+tl.fromTo('#ly10 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},23.471);
+tl.fromTo('#ly11 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},24.557);
+tl.fromTo('#ly12 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},26.089);
+tl.fromTo('#ly13 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},27.460);
+tl.fromTo('#ly14 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},29.938);
+tl.fromTo('#ly15 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},32.092);
+tl.fromTo('#ly16 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},33.172);
+tl.fromTo('#ly17 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},34.520);
+tl.fromTo('#ly18 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},35.935);
+tl.fromTo('#ly19 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},37.320);
+tl.fromTo('#ly20 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},38.360);
+tl.fromTo('#ly21 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},39.783);
+tl.fromTo('#ly22 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},41.786);
+tl.fromTo('#ly23 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},43.028);
+tl.fromTo('#ly24 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},44.247);
+tl.fromTo('#ly25 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},45.646);
+tl.fromTo('#ly26 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},47.324);
+tl.fromTo('#ly27 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},49.490);
+tl.fromTo('#ly28 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},52.235);
+tl.fromTo('#ly29 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},53.919);
+tl.fromTo('#ly30 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},55.915);
+tl.fromTo('#ly31 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},58.365);
+tl.fromTo('#ly32 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},60.815);
+tl.fromTo('#ly33 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},63.265);
+tl.fromTo('#ly34 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},65.714);
+tl.fromTo('#ly35 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},68.164);
+tl.fromTo('#ly36 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},70.614);
+tl.fromTo('#ly37 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},74.439);
+tl.fromTo('#ly38 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},78.398);
+tl.fromTo('#ly39 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},81.270);
+tl.fromTo('#ly40 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},83.292);
+tl.fromTo('#ly41 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},85.880);
+tl.fromTo('#ly42 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},88.168);
+tl.fromTo('#ly43 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},90.757);
+tl.fromTo('#ly44 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},93.218);
+tl.fromTo('#ly45 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},95.482);
+tl.fromTo('#ly46 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},97.619);
+tl.fromTo('#ly47 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},100.382);
+tl.fromTo('#ly48 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},102.495);
+tl.fromTo('#ly49 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},105.084);
+tl.fromTo('#ly50 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},106.082);
+tl.fromTo('#ly51 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},107.940);
+tl.fromTo('#ly52 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},109.480);
+tl.fromTo('#ly53 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},113.013);
+tl.fromTo('#ly54 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},115.138);
+tl.fromTo('#ly55 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},117.740);
+tl.fromTo('#ly56 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},119.670);
+tl.fromTo('#ly57 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},122.296);
+tl.fromTo('#ly58 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},124.716);
+tl.fromTo('#ly59 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},126.551);
+tl.fromTo('#ly60 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},129.291);
+tl.fromTo('#ly61 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},130.930);
+tl.fromTo('#ly62 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},131.427);
+tl.fromTo('#ly63 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},133.842);
+tl.fromTo('#ly64 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},135.653);
+tl.fromTo('#ly65 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},138.091);
+tl.fromTo('#ly66 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},140.523);
+tl.fromTo('#ly67 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},142.320);
+tl.fromTo('#ly68 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},144.600);
+tl.fromTo('#ly69 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},147.920);
+tl.fromTo('#ly70 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},150.220);
+tl.fromTo('#ly71 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},153.277);
+tl.fromTo('#ly72 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},155.960);
+tl.fromTo('#ly73 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},158.030);
+tl.fromTo('#ly74 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},160.672);
+tl.fromTo('#ly75 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},162.414);
+tl.fromTo('#ly76 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},164.300);
+tl.fromTo('#ly77 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},166.994);
+tl.fromTo('#ly78 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},169.252);
+tl.fromTo('#ly79 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},171.551);
+tl.fromTo('#ly80 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},174.291);
+tl.fromTo('#ly81 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},177.785);
+tl.fromTo('#ly82 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},180.224);
+tl.fromTo('#ly83 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},182.650);
+tl.fromTo('#ly84 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},185.076);
+tl.fromTo('#ly85 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},187.491);
+tl.fromTo('#ly86 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},189.929);
+tl.fromTo('#ly87 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},192.344);
+tl.fromTo('#ly88 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},196.140);
+tl.fromTo('#ly89 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},198.170);
+tl.fromTo('#ly90 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},200.820);
+tl.fromTo('#ly91 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},202.480);
+tl.fromTo('#ly92 .lyrw',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:'expo.out'},205.197);
+tl.fromTo('#lb0 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},0.000);
+tl.fromTo('#lb1 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},1.082);
+tl.fromTo('#lb2 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},7.897);
+tl.fromTo('#lb3 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},17.150);
+tl.fromTo('#lb4 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},27.460);
+tl.fromTo('#lb5 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},32.092);
+tl.fromTo('#lb6 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},37.320);
+tl.fromTo('#lb7 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},41.786);
+tl.fromTo('#lb8 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},47.324);
+tl.fromTo('#lb9 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},55.915);
+tl.fromTo('#lb10 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},78.398);
+tl.fromTo('#lb11 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},85.880);
+tl.fromTo('#lb12 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},90.757);
+tl.fromTo('#lb13 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},93.218);
+tl.fromTo('#lb14 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},97.619);
+tl.fromTo('#lb15 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},102.495);
+tl.fromTo('#lb16 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},105.084);
+tl.fromTo('#lb17 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},155.960);
+tl.fromTo('#lb18 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},164.300);
+tl.fromTo('#lb19 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},171.551);
+tl.fromTo('#lb20 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},177.785);
+tl.fromTo('#lb21 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},196.140);
+tl.fromTo('#lb22 .labw',{opacity:0,y:-10},{opacity:1,y:0,duration:0.35,ease:'expo.out'},205.197);
+window.__timelines = window.__timelines || {};
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

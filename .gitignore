@@ -1,0 +1,3 @@
+gmat-video/renders/*.log
+gmat-video/snaps/
+__pycache__/
