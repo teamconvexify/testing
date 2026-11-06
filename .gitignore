@@ -1,3 +1,5 @@
 gmat-video/renders/*.log
 gmat-video/snaps/
 __pycache__/
+gmat-video/renders/work-*/
+gmat-video/renders/.*-transaction-*/
